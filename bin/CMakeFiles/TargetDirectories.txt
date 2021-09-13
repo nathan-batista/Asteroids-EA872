@@ -1,0 +1,6 @@
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/rebuild_cache.dir
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/View.dir
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/edit_cache.dir
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Controller.dir
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Model.dir
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Asteroids.dir

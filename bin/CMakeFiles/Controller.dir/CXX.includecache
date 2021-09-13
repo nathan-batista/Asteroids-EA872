@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Controller.h
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+Model.h
+../include/Model.h
+
+../include/Model.h
+
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Controller.cpp
+Controller.h
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Controller.h
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+

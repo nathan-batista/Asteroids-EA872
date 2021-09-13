@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Model.h
+
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Model.cpp
+Model.h
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Model.h
+
