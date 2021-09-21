@@ -2,8 +2,7 @@
 #include <SDL2/SDL_image.h>
 #include "Model.h"
 
-#ifndef _Controller_
-#define _Controller_
+#pragma once
 class Controller{
     private:
         float a, f;
@@ -25,4 +24,4 @@ class Controller{
         void update();
 };
 
-#endif
+

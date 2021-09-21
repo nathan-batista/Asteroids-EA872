@@ -1,6 +1,4 @@
-#ifndef _Model_
-#define _Model_
-
+#pragma once
 class Model{
     private:
         float m;
@@ -11,10 +9,11 @@ class Model{
         float dt;
         float x_atual;
         float v_atual;
+        float y_atual;
         char *imagem_principal;
         char *imagem_fundo;
     public:
-        Model(float m, float k, float b, float x0, float v0, float dt);
+        Model(float m, float k, float b, float x0, float v0, float dt,float novo_y);
         float get_m();
         float get_k();
         float get_b();
@@ -23,6 +22,8 @@ class Model{
         void set_x_atual(float new_x);
         float get_v_atual();
         void set_v_atual(float new_v);
+        float get_y_atual();
+        void set_y_atual(float new_y);
 };
 
-#endif
+

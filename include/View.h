@@ -2,9 +2,8 @@
 #include <SDL2/SDL_image.h>
 #include "Model.h"
 
+#pragma once
 
-#ifndef _View_
-#define _View_
 class View{
     private:
         Model &model;
@@ -19,4 +18,4 @@ class View{
         void destruir();
 };
 
-#endif
+

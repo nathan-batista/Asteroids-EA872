@@ -38,19 +38,23 @@ View::View(Model &model) : model(model){
     }
     // Carregando texturas
     // personagem
-    this->texture = IMG_LoadTexture(this->renderer, "../assets/capi.png");
+    this->texture = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");
     // fundo
-    this->texture2 = IMG_LoadTexture(this->renderer, "../assets/park.jpeg");
+    this->texture2 = IMG_LoadTexture(this->renderer, "../assets/space1.jpeg");
     
+    //coleta posicoes iniciais do model
     this->target.x = model.get_x_atual();
-    this->target.y = 120;
+    this->target.y = model.get_y_atual();
     SDL_QueryTexture(this->texture, nullptr, nullptr, &(this->target.w), &(this->target.h));
 
 }
 
 void View::renderizar(){
-    // Desenhar a cena
+    // Desenhar a cena coletando as posicoes do model e setando o width e height
     target.x = model.get_x_atual();
+    target.y = model.get_y_atual();
+    target.w = 65;
+    target.h = 65;
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
     SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));

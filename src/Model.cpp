@@ -1,6 +1,6 @@
 #include "Model.h"
 
-Model::Model(float m, float k, float b, float x0, float v0, float dt){
+Model::Model(float m, float k, float b, float x0, float v0, float dt,float novo_y){
       //setando variaveis iniciais
       this->m = m;
       this->k = k;
@@ -10,6 +10,7 @@ Model::Model(float m, float k, float b, float x0, float v0, float dt){
       this->dt = dt;
       this->x_atual = x0;
       this->v_atual = v0;
+      this -> y_atual = novo_y;
 }
 float Model::get_m(){
     return this->m;
@@ -34,4 +35,12 @@ float Model::get_v_atual(){
 }
 void Model::set_v_atual(float new_v){
     this->v_atual = new_v;
+}
+
+float Model::get_y_atual(){
+    return this-> y_atual;
+}
+
+void Model::set_y_atual(float new_y){
+    this->y_atual = new_y;
 }

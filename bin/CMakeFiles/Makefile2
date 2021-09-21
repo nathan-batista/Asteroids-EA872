@@ -158,9 +158,9 @@ CMakeFiles/Model.dir/clean:
 # Target rules for target CMakeFiles/Asteroids.dir
 
 # All Build rule for target.
-CMakeFiles/Asteroids.dir/all: CMakeFiles/Model.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/View.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/Controller.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/Model.dir/all
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/depend
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=1,2 "Built target Asteroids"

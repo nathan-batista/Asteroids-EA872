@@ -12,11 +12,27 @@ Controller::Controller(Model &model) : model(model){
 }
 
 void Controller::polling(){
-      //SDL_PumpEvents(); // atualiza estado do teclado
-      //if (state[SDL_SCANCODE_LEFT]) model.set_target((-1)*1, 0);
-      //if (state[SDL_SCANCODE_RIGHT]) model.set_target(1, 0);
-      //if (state[SDL_SCANCODE_UP]) model.set_target(0, (-1)*1);
-      //if (state[SDL_SCANCODE_DOWN]) model.set_target(0, 1);
+        SDL_PumpEvents(); // atualiza estado do teclado
+        if (state[SDL_SCANCODE_LEFT]){
+            float x = model.get_x_atual();
+            x -= 3;
+            model.set_x_atual(x);
+        } 
+        if (state[SDL_SCANCODE_RIGHT]) {
+            float x = model.get_x_atual();
+            x += 3;
+            model.set_x_atual(x);
+        }
+        if (state[SDL_SCANCODE_UP]){
+            float y = model.get_y_atual();
+            y -= 3;
+            model.set_y_atual(y);
+        }
+        if (state[SDL_SCANCODE_DOWN]){
+            float y = model.get_y_atual();
+            y += 3;
+            model.set_y_atual(y);
+        }
 
       while (SDL_PollEvent(&(this->evento))) {
         if (this->evento.type == SDL_QUIT) {
@@ -24,12 +40,22 @@ void Controller::polling(){
         }
         // Exemplos de outros eventos.
         // Que outros eventos poderiamos ter e que sao uteis?
-        //if (evento.type == SDL_KEYDOWN) {
-        //}
+        // if (evento.type == SDL_KEYDOWN) {
+        // }
+        // else if (evento.type == SDL_KEYUP) {
+        // }
+        // else if (evento.type == SDL_KEYRIGHT) {
+        //     float x = model.get_x_atual();
+        //     x = x + 1;
+        //     model.set_x_atual(x);
+        // }
+        // else if (evento.type == SDL_KEYLEFT) {
+        // }
+
         //if (evento.type == SDL_MOUSEBUTTONDOWN) {
         //}
     }
-} 
+}
 
 bool Controller::get_rodando(){
       return this->rodando;
@@ -48,8 +74,8 @@ void Controller::calcular_posicao(){
     model.set_x_atual(model.get_x_atual() + model.get_v_atual() * model.get_dt());
 }
 void Controller::update(){
-    calcular_forca();
-    estimar_aceleracao();   
-    calcular_velocidade();
-    calcular_posicao();              
+    // calcular_forca();
+    // estimar_aceleracao();   
+    // calcular_velocidade();
+    // calcular_posicao();              
 }

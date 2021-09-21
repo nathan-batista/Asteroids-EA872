@@ -3,7 +3,7 @@
 #include "Model.h"
 
 int main() { 
-  Model model = Model(1, 1, 0, 320, 30, 0.1);
+  Model model = Model(1, 1, 0, 320, 30, 0.1,120);
   View view = View(model);
   Controller controller = Controller(model);
 
