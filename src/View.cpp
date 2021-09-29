@@ -8,7 +8,7 @@ using namespace std;
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 480;
 
-View::View(Model &model) : model(model){
+View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid)  {
 
     // Inicializando o submodelema de video do SDL
     if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
@@ -38,26 +38,35 @@ View::View(Model &model) : model(model){
     }
     // Carregando texturas
     // personagem
-    this->texture = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");
-    // fundo
-    this->texture2 = IMG_LoadTexture(this->renderer, "../assets/space1.jpeg");
-    
-    //coleta posicoes iniciais do model
+    this->texture = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");  
     this->target.x = model.get_x_atual();
     this->target.y = model.get_y_atual();
+    // fundo
+    this->texture2 = IMG_LoadTexture(this->renderer, "../assets/space1.jpeg");      
+    //Asteroid
+    this->texture3 = IMG_LoadTexture(this->renderer,"../assets/capi.png" );
+    this->target_ast.x = asteroid.get_x_atual();
+    this->target_ast.y = asteroid.get_y_atual();
+
     SDL_QueryTexture(this->texture, nullptr, nullptr, &(this->target.w), &(this->target.h));
 
 }
 
 void View::renderizar(){
-    // Desenhar a cena coletando as posicoes do model e setando o width e height
+    // Desenhar a cena
     target.x = model.get_x_atual();
     target.y = model.get_y_atual();
-    target.w = 65;
     target.h = 65;
+    target.w = 65;
+
+    target_ast.x = asteroid.get_x_atual();
+    target_ast.y = asteroid.get_y_atual();
+    target_ast.h = 65;
+    target_ast.w = 65;
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
     SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
+    SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));
     SDL_RenderPresent(this->renderer);
     // Delay para diminuir o framerate
     SDL_Delay(10);

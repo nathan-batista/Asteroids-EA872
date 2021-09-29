@@ -45,6 +45,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/AsteroidController.dir/DependInfo.cmake"
+  "CMakeFiles/Asteroid.dir/DependInfo.cmake"
   "CMakeFiles/View.dir/DependInfo.cmake"
   "CMakeFiles/Controller.dir/DependInfo.cmake"
   "CMakeFiles/Model.dir/DependInfo.cmake"

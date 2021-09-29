@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named AsteroidController
+
+# Build rule for target.
+AsteroidController: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AsteroidController
+.PHONY : AsteroidController
+
+# fast build rule for target.
+AsteroidController/fast:
+	$(MAKE) -f CMakeFiles/AsteroidController.dir/build.make CMakeFiles/AsteroidController.dir/build
+.PHONY : AsteroidController/fast
+
+#=============================================================================
+# Target rules for targets named Asteroid
+
+# Build rule for target.
+Asteroid: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Asteroid
+.PHONY : Asteroid
+
+# fast build rule for target.
+Asteroid/fast:
+	$(MAKE) -f CMakeFiles/Asteroid.dir/build.make CMakeFiles/Asteroid.dir/build
+.PHONY : Asteroid/fast
+
+#=============================================================================
 # Target rules for targets named View
 
 # Build rule for target.
@@ -161,6 +187,60 @@ Asteroids: cmake_check_build_system
 Asteroids/fast:
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/build
 .PHONY : Asteroids/fast
+
+src/Asteroid.o: src/Asteroid.cpp.o
+
+.PHONY : src/Asteroid.o
+
+# target to build an object file
+src/Asteroid.cpp.o:
+	$(MAKE) -f CMakeFiles/Asteroid.dir/build.make CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o
+.PHONY : src/Asteroid.cpp.o
+
+src/Asteroid.i: src/Asteroid.cpp.i
+
+.PHONY : src/Asteroid.i
+
+# target to preprocess a source file
+src/Asteroid.cpp.i:
+	$(MAKE) -f CMakeFiles/Asteroid.dir/build.make CMakeFiles/Asteroid.dir/src/Asteroid.cpp.i
+.PHONY : src/Asteroid.cpp.i
+
+src/Asteroid.s: src/Asteroid.cpp.s
+
+.PHONY : src/Asteroid.s
+
+# target to generate assembly for a file
+src/Asteroid.cpp.s:
+	$(MAKE) -f CMakeFiles/Asteroid.dir/build.make CMakeFiles/Asteroid.dir/src/Asteroid.cpp.s
+.PHONY : src/Asteroid.cpp.s
+
+src/AsteroidController.o: src/AsteroidController.cpp.o
+
+.PHONY : src/AsteroidController.o
+
+# target to build an object file
+src/AsteroidController.cpp.o:
+	$(MAKE) -f CMakeFiles/AsteroidController.dir/build.make CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.o
+.PHONY : src/AsteroidController.cpp.o
+
+src/AsteroidController.i: src/AsteroidController.cpp.i
+
+.PHONY : src/AsteroidController.i
+
+# target to preprocess a source file
+src/AsteroidController.cpp.i:
+	$(MAKE) -f CMakeFiles/AsteroidController.dir/build.make CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.i
+.PHONY : src/AsteroidController.cpp.i
+
+src/AsteroidController.s: src/AsteroidController.cpp.s
+
+.PHONY : src/AsteroidController.s
+
+# target to generate assembly for a file
+src/AsteroidController.cpp.s:
+	$(MAKE) -f CMakeFiles/AsteroidController.dir/build.make CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.s
+.PHONY : src/AsteroidController.cpp.s
 
 src/Controller.o: src/Controller.cpp.o
 
@@ -277,11 +357,19 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... AsteroidController"
+	@echo "... Asteroid"
 	@echo "... View"
 	@echo "... edit_cache"
 	@echo "... Controller"
 	@echo "... Model"
 	@echo "... Asteroids"
+	@echo "... src/Asteroid.o"
+	@echo "... src/Asteroid.i"
+	@echo "... src/Asteroid.s"
+	@echo "... src/AsteroidController.o"
+	@echo "... src/AsteroidController.i"
+	@echo "... src/AsteroidController.s"
 	@echo "... src/Controller.o"
 	@echo "... src/Controller.i"
 	@echo "... src/Controller.s"
