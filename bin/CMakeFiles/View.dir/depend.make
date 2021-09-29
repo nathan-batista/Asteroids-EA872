@@ -3,6 +3,7 @@
 
 CMakeFiles/View.dir/src/View.cpp.o: ../include/Asteroid.h
 CMakeFiles/View.dir/src/View.cpp.o: ../include/Model.h
+CMakeFiles/View.dir/src/View.cpp.o: ../include/Tiro.h
 CMakeFiles/View.dir/src/View.cpp.o: ../include/View.h
 CMakeFiles/View.dir/src/View.cpp.o: ../src/View.cpp
 

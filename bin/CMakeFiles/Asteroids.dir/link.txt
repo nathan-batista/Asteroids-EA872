@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/Asteroids.dir/src/main.cpp.o  -o Asteroids  libModel.a libView.a libController.a libAsteroid.a libAsteroidController.a -lSDL2 -lSDL2_image 
+/usr/bin/c++    -rdynamic CMakeFiles/Asteroids.dir/src/main.cpp.o  -o Asteroids  libModel.a libView.a libController.a libAsteroid.a libAsteroidController.a libTiro.a libTiroController.a -lSDL2 -lSDL2_image 

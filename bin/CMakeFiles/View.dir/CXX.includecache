@@ -9,6 +9,10 @@
 ../include/Asteroid.h
 
 ../include/Model.h
+Tiro.h
+../include/Tiro.h
+
+../include/Tiro.h
 
 ../include/View.h
 SDL2/SDL.h
@@ -19,6 +23,8 @@ Model.h
 ../include/Model.h
 Asteroid.h
 ../include/Asteroid.h
+Tiro.h
+../include/Tiro.h
 
 /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/View.cpp
 View.h

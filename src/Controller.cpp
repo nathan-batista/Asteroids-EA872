@@ -1,8 +1,10 @@
 #include "Controller.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include "Tiro.h"
+#include <iostream>
 
-
+using namespace std;
 
 Controller::Controller(Model &model) : model(model){
         this->rodando = true;
@@ -16,7 +18,18 @@ void Controller::polling(){
       if (state[SDL_SCANCODE_LEFT]) model.set_x_atual(model.get_x_atual()-10);
       if (state[SDL_SCANCODE_RIGHT]) model.set_x_atual(model.get_x_atual() + 10);
       if (state[SDL_SCANCODE_UP]) model.set_y_atual(model.get_y_atual() - 10);
-      if (state[SDL_SCANCODE_DOWN])model.set_y_atual(model.get_y_atual() + 10);
+      if (state[SDL_SCANCODE_DOWN]) model.set_y_atual(model.get_y_atual() + 10);
+      if(state[SDL_SCANCODE_SPACE]) {
+          float x = model.get_x_atual();
+          float y = model.get_y_atual();
+          //float vx = (model.get_vx_atual() > 0) ? 16. : 0. ;
+          float vy = -16;
+          float dt = model.get_dt();
+          Tiro tiroNave = Tiro(x,y,0,vy,dt);
+          tiroNave.flag = true;
+          model.setTiro(tiroNave);
+          cout << "Cheguei no negocio" << endl;
+      }
 
       while (SDL_PollEvent(&(this->evento))) {
         if (this->evento.type == SDL_QUIT) {

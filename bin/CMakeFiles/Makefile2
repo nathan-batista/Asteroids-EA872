@@ -53,6 +53,8 @@ CMAKE_BINARY_DIR = "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA8
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/TiroController.dir/all
+all: CMakeFiles/Tiro.dir/all
 all: CMakeFiles/AsteroidController.dir/all
 all: CMakeFiles/Asteroid.dir/all
 all: CMakeFiles/View.dir/all
@@ -68,6 +70,8 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/TiroController.dir/clean
+clean: CMakeFiles/Tiro.dir/clean
 clean: CMakeFiles/AsteroidController.dir/clean
 clean: CMakeFiles/Asteroid.dir/clean
 clean: CMakeFiles/View.dir/clean
@@ -76,6 +80,60 @@ clean: CMakeFiles/Model.dir/clean
 clean: CMakeFiles/Asteroids.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/TiroController.dir
+
+# All Build rule for target.
+CMakeFiles/TiroController.dir/all:
+	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/depend
+	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=13,14 "Built target TiroController"
+.PHONY : CMakeFiles/TiroController.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/TiroController.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TiroController.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+.PHONY : CMakeFiles/TiroController.dir/rule
+
+# Convenience name for target.
+TiroController: CMakeFiles/TiroController.dir/rule
+
+.PHONY : TiroController
+
+# clean rule for target.
+CMakeFiles/TiroController.dir/clean:
+	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/clean
+.PHONY : CMakeFiles/TiroController.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Tiro.dir
+
+# All Build rule for target.
+CMakeFiles/Tiro.dir/all:
+	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/depend
+	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=11,12 "Built target Tiro"
+.PHONY : CMakeFiles/Tiro.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Tiro.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Tiro.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+.PHONY : CMakeFiles/Tiro.dir/rule
+
+# Convenience name for target.
+Tiro: CMakeFiles/Tiro.dir/rule
+
+.PHONY : Tiro
+
+# clean rule for target.
+CMakeFiles/Tiro.dir/clean:
+	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/clean
+.PHONY : CMakeFiles/Tiro.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/AsteroidController.dir
@@ -138,7 +196,7 @@ CMakeFiles/Asteroid.dir/clean:
 CMakeFiles/View.dir/all:
 	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/depend
 	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=11,12 "Built target View"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=15,16 "Built target View"
 .PHONY : CMakeFiles/View.dir/all
 
 # Build rule for subdir invocation for target.
@@ -216,6 +274,8 @@ CMakeFiles/Model.dir/clean:
 # Target rules for target CMakeFiles/Asteroids.dir
 
 # All Build rule for target.
+CMakeFiles/Asteroids.dir/all: CMakeFiles/TiroController.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/Tiro.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/AsteroidController.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/Asteroid.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/View.dir/all
@@ -228,7 +288,7 @@ CMakeFiles/Asteroids.dir/all: CMakeFiles/Model.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Asteroids.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 12
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 16
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Asteroids.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
 .PHONY : CMakeFiles/Asteroids.dir/rule

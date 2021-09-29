@@ -1,6 +1,9 @@
 #include "Model.h"
+#include "Tiro.h"
+#include <iostream>
+using namespace std;
 
-Model::Model(float m, float k, float b, float x0, float y0, float v0, float dt){
+Model::Model(float m, float k, float b, float x0, float y0, float v0, float dt,Tiro tiro) : tiro(tiro){
       //setando variaveis iniciais
       this->m = m;
       this->k = k;
@@ -41,4 +44,13 @@ float Model::get_v_atual(){
 }
 void Model::set_v_atual(float new_v){
     this->v_atual = new_v;
+}
+void Model::setTiro(Tiro tiro) {
+    cout << "Entrei no set" << endl;
+    this->tiro = tiro;
+    cout << "já Setei" << endl;
+}
+
+Tiro Model::getTiro(){
+    return (this->tiro);
 }

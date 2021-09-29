@@ -20,6 +20,8 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Controller.dir/DependInfo.cmake"
   "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Asteroid.dir/DependInfo.cmake"
   "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/AsteroidController.dir/DependInfo.cmake"
+  "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Tiro.dir/DependInfo.cmake"
+  "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/TiroController.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

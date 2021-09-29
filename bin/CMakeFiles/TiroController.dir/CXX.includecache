@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Tiro.h
+
+../include/TiroController.h
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+Tiro.h
+../include/Tiro.h
+
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/TiroController.cpp
+TiroController.h
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/TiroController.h
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+iostream
+-
+

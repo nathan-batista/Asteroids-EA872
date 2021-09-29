@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named TiroController
+
+# Build rule for target.
+TiroController: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TiroController
+.PHONY : TiroController
+
+# fast build rule for target.
+TiroController/fast:
+	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/build
+.PHONY : TiroController/fast
+
+#=============================================================================
+# Target rules for targets named Tiro
+
+# Build rule for target.
+Tiro: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Tiro
+.PHONY : Tiro
+
+# fast build rule for target.
+Tiro/fast:
+	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/build
+.PHONY : Tiro/fast
+
+#=============================================================================
 # Target rules for targets named AsteroidController
 
 # Build rule for target.
@@ -296,6 +322,60 @@ src/Model.cpp.s:
 	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/src/Model.cpp.s
 .PHONY : src/Model.cpp.s
 
+src/Tiro.o: src/Tiro.cpp.o
+
+.PHONY : src/Tiro.o
+
+# target to build an object file
+src/Tiro.cpp.o:
+	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/src/Tiro.cpp.o
+.PHONY : src/Tiro.cpp.o
+
+src/Tiro.i: src/Tiro.cpp.i
+
+.PHONY : src/Tiro.i
+
+# target to preprocess a source file
+src/Tiro.cpp.i:
+	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/src/Tiro.cpp.i
+.PHONY : src/Tiro.cpp.i
+
+src/Tiro.s: src/Tiro.cpp.s
+
+.PHONY : src/Tiro.s
+
+# target to generate assembly for a file
+src/Tiro.cpp.s:
+	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/src/Tiro.cpp.s
+.PHONY : src/Tiro.cpp.s
+
+src/TiroController.o: src/TiroController.cpp.o
+
+.PHONY : src/TiroController.o
+
+# target to build an object file
+src/TiroController.cpp.o:
+	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/src/TiroController.cpp.o
+.PHONY : src/TiroController.cpp.o
+
+src/TiroController.i: src/TiroController.cpp.i
+
+.PHONY : src/TiroController.i
+
+# target to preprocess a source file
+src/TiroController.cpp.i:
+	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/src/TiroController.cpp.i
+.PHONY : src/TiroController.cpp.i
+
+src/TiroController.s: src/TiroController.cpp.s
+
+.PHONY : src/TiroController.s
+
+# target to generate assembly for a file
+src/TiroController.cpp.s:
+	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/src/TiroController.cpp.s
+.PHONY : src/TiroController.cpp.s
+
 src/View.o: src/View.cpp.o
 
 .PHONY : src/View.o
@@ -357,6 +437,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... TiroController"
+	@echo "... Tiro"
 	@echo "... AsteroidController"
 	@echo "... Asteroid"
 	@echo "... View"
@@ -376,6 +458,12 @@ help:
 	@echo "... src/Model.o"
 	@echo "... src/Model.i"
 	@echo "... src/Model.s"
+	@echo "... src/Tiro.o"
+	@echo "... src/Tiro.i"
+	@echo "... src/Tiro.s"
+	@echo "... src/TiroController.o"
+	@echo "... src/TiroController.i"
+	@echo "... src/TiroController.s"
 	@echo "... src/View.o"
 	@echo "... src/View.i"
 	@echo "... src/View.s"

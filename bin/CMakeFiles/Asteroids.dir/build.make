@@ -84,6 +84,8 @@ Asteroids: libView.a
 Asteroids: libController.a
 Asteroids: libAsteroid.a
 Asteroids: libAsteroidController.a
+Asteroids: libTiro.a
+Asteroids: libTiroController.a
 Asteroids: CMakeFiles/Asteroids.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Asteroids"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Asteroids.dir/link.txt --verbose=$(VERBOSE)

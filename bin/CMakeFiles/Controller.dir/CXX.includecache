@@ -15,6 +15,10 @@ Model.h
 ../include/Model.h
 
 ../include/Model.h
+Tiro.h
+../include/Tiro.h
+
+../include/Tiro.h
 
 /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Controller.cpp
 Controller.h
@@ -22,5 +26,9 @@ Controller.h
 SDL2/SDL.h
 -
 SDL2/SDL_image.h
+-
+Tiro.h
+/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Tiro.h
+iostream
 -
 

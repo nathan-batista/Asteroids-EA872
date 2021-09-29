@@ -4,4 +4,5 @@
 CMakeFiles/Controller.dir/src/Controller.cpp.o
  ../include/Controller.h
  ../include/Model.h
+ ../include/Tiro.h
  /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Controller.cpp

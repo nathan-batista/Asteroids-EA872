@@ -8,7 +8,8 @@ using namespace std;
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 480;
 
-View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid)  {
+View::View(Model &model, Asteroid &asteroid,Tiro &tiro) : model(model), asteroid(asteroid), tiro(tiro) {
+
 
     // Inicializando o submodelema de video do SDL
     if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
@@ -48,6 +49,9 @@ View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid) 
     this->target_ast.x = asteroid.get_x_atual();
     this->target_ast.y = asteroid.get_y_atual();
 
+    this->texture4 = IMG_LoadTexture(this->renderer,"../assets/tiro.png" );
+    
+
     SDL_QueryTexture(this->texture, nullptr, nullptr, &(this->target.w), &(this->target.h));
 
 }
@@ -64,12 +68,23 @@ void View::renderizar(){
     target_ast.h = 65;
     target_ast.w = 65;
     SDL_RenderClear(this->renderer);
+    if(this->tiro.flag == true){
+        cout << "Renderrr" << endl;
+        target_tiro.x = tiro.get_x_atual();
+        target_tiro.y = tiro.get_y_atual();
+        target_tiro.w = 5;
+        target_tiro.h = 10;
+        SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
+        cout << "Renderizei" << endl;
+    }
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
     SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
     SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));
+    
     SDL_RenderPresent(this->renderer);
     // Delay para diminuir o framerate
     SDL_Delay(10);
+    
 }
 
 void View::destruir(){
@@ -78,3 +93,5 @@ void View::destruir(){
     SDL_DestroyWindow(this->window);
     SDL_Quit();
 }
+
+

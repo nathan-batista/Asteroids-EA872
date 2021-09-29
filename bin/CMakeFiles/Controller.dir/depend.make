@@ -3,5 +3,6 @@
 
 CMakeFiles/Controller.dir/src/Controller.cpp.o: ../include/Controller.h
 CMakeFiles/Controller.dir/src/Controller.cpp.o: ../include/Model.h
+CMakeFiles/Controller.dir/src/Controller.cpp.o: ../include/Tiro.h
 CMakeFiles/Controller.dir/src/Controller.cpp.o: ../src/Controller.cpp
 

@@ -6,5 +6,7 @@ CMakeFiles/Asteroids.dir/src/main.cpp.o
  ../include/AsteroidController.h
  ../include/Controller.h
  ../include/Model.h
+ ../include/Tiro.h
+ ../include/TiroController.h
  ../include/View.h
  /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/main.cpp
