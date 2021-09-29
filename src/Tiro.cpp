@@ -32,3 +32,7 @@ void Tiro::set_x_atual(float new_x){
 void Tiro::set_y_atual(float new_y){
     this->y_atual = new_y;
 }
+
+bool Tiro::getFlag(){
+    return this->flag;
+}

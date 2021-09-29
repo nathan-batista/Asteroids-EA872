@@ -5,8 +5,8 @@
 
 using namespace std;
 
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1000;
+const int SCREEN_HEIGHT = 600;
 
 View::View(Model &model, Asteroid &asteroid,Tiro &tiro) : model(model), asteroid(asteroid), tiro(tiro) {
 
@@ -50,6 +50,8 @@ View::View(Model &model, Asteroid &asteroid,Tiro &tiro) : model(model), asteroid
     this->target_ast.y = asteroid.get_y_atual();
 
     this->texture4 = IMG_LoadTexture(this->renderer,"../assets/tiro.png" );
+    this->target_tiro.x = 50;
+    this->target_tiro.y = 50;
     
 
     SDL_QueryTexture(this->texture, nullptr, nullptr, &(this->target.w), &(this->target.h));
@@ -67,17 +69,19 @@ void View::renderizar(){
     target_ast.y = asteroid.get_y_atual();
     target_ast.h = 65;
     target_ast.w = 65;
-    SDL_RenderClear(this->renderer);
-    if(this->tiro.flag == true){
-        cout << "Renderrr" << endl;
-        target_tiro.x = tiro.get_x_atual();
-        target_tiro.y = tiro.get_y_atual();
-        target_tiro.w = 5;
-        target_tiro.h = 10;
-        SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
-        cout << "Renderizei" << endl;
+    
+    target_tiro.x = model.getTiro().get_x_atual();
+    target_tiro.y = model.getTiro().get_y_atual();
+    target_tiro.w = 100;
+    target_tiro.h = 100;
+    if(tiro.getFlag()){
+        cout << "ENTREI AQUI CRL" << endl;
+        cout << target_tiro.y << endl;
     }
+    SDL_RenderClear(this->renderer);
+    
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
+    SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
     SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
     SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));
     
@@ -92,6 +96,10 @@ void View::destruir(){
     SDL_DestroyRenderer(this->renderer);
     SDL_DestroyWindow(this->window);
     SDL_Quit();
+}
+
+void View::criarTiro(Tiro &tiro){
+    this->tiro = tiro;
 }
 
 

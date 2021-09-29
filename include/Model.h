@@ -30,8 +30,8 @@ class Model{
         void set_y_atual(float new_y);
         float get_v_atual();
         void set_v_atual(float new_v);
-        void setTiro(Tiro tiro);
-        Tiro getTiro();
+        void setTiro(Tiro &tiro);
+        Tiro& getTiro();
 };
 
 #endif

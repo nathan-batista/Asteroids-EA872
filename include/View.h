@@ -12,7 +12,7 @@ class View{
         Model &model;
         Asteroid &asteroid;
         SDL_Renderer* renderer;
-        Tiro &tiro;
+        Tiro tiro;
         SDL_Window* window;
         SDL_Rect target;
         SDL_Rect target_ast;

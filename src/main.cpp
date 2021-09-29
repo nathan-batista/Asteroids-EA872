@@ -14,12 +14,17 @@ int main() {
   AsteroidController asteroidcontroller = AsteroidController(asteroid);
   Controller controller = Controller(model);
   TiroController tiroController = TiroController();
-
+  bool inseriu = false;
 
   // Laco principal do jogo
   while(controller.get_rodando()) {
     controller.polling();
     asteroidcontroller.update();
+    Tiro tirinho = model.getTiro();
+    if(tirinho.getFlag() && !inseriu){
+      view.criarTiro(tirinho);
+      inseriu = true;
+    }
     tiroController.update(model.getTiro());
     view.renderizar();
   }

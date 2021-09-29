@@ -45,12 +45,12 @@ float Model::get_v_atual(){
 void Model::set_v_atual(float new_v){
     this->v_atual = new_v;
 }
-void Model::setTiro(Tiro tiro) {
+void Model::setTiro(Tiro &tiro) {
     cout << "Entrei no set" << endl;
     this->tiro = tiro;
     cout << "já Setei" << endl;
 }
 
-Tiro Model::getTiro(){
+Tiro& Model::getTiro(){
     return (this->tiro);
 }

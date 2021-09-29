@@ -19,4 +19,5 @@ class Tiro{
 
         void set_x_atual(float new_x);
         void set_y_atual(float new_y);
+        bool getFlag();
 };
