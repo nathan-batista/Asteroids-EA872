@@ -3,7 +3,8 @@
 #include "Model.h"
 #include "Asteroid.h"
 #include "Tiro.h"
-
+#include <vector>
+using namespace std;
 
 #ifndef _View_
 #define _View_
@@ -12,7 +13,6 @@ class View{
         Model &model;
         Asteroid &asteroid;
         SDL_Renderer* renderer;
-        Tiro &tiro;
         SDL_Window* window;
         SDL_Rect target;
         SDL_Rect target_ast;
@@ -22,7 +22,7 @@ class View{
         SDL_Texture *texture3;
         SDL_Texture *texture4;
     public:
-        View(Model &model, Asteroid &asteroid,Tiro &tiro);
+        View(Model &model, Asteroid &asteroid);
         void renderizar();
         void destruir();
 };

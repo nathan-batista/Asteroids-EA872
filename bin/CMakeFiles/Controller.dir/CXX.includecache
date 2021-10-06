@@ -19,6 +19,8 @@ Asteroid.h
 ../include/Asteroid.h
 Tiro.h
 ../include/Tiro.h
+vector
+-
 
 ../include/Model.h
 Tiro.h
@@ -36,5 +38,7 @@ SDL2/SDL_image.h
 Tiro.h
 /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Tiro.h
 iostream
+-
+vector
 -
 

@@ -25,6 +25,8 @@ Asteroid.h
 ../include/Asteroid.h
 Tiro.h
 ../include/Tiro.h
+vector
+-
 
 /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/View.cpp
 View.h
@@ -34,5 +36,7 @@ SDL2/SDL.h
 SDL2/SDL_image.h
 -
 iostream
+-
+vector
 -
 

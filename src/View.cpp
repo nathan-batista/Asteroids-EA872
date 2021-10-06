@@ -2,14 +2,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 600;
 
-View::View(Model &model, Asteroid &asteroid,Tiro &tiro) : model(model), asteroid(asteroid), tiro(tiro) {
-
+View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid) {
 
     // Inicializando o submodelema de video do SDL
     if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
@@ -72,14 +71,17 @@ void View::renderizar(){
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
 
-    if(tiro.flag && !tiro.destruir){
-        cout <<"Posicao = " <<tiro.get_y_atual() << endl;
-        target_tiro.x = tiro.get_x_atual();
-        target_tiro.y = tiro.get_y_atual();
-        target_tiro.w = tiro.width;
-        target_tiro.h = tiro.height;
+
+    
+    vector<Tiro> tiros = model.getTiro();
+    for(int i = 0; i < tiros.size(); i++) {
+        target_tiro.x = tiros[i].get_x_atual();
+        target_tiro.y = tiros[i].get_y_atual();    
+        target_tiro.w = tiros[i].width;
+        target_tiro.h = tiros[i].height;
         SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
     }
+
     if(!model.destruir){
         SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
     }
@@ -90,7 +92,7 @@ void View::renderizar(){
 
     SDL_RenderPresent(this->renderer);
     // Delay para diminuir o framerate
-    SDL_Delay(10);
+    SDL_Delay(1);
     
 }
 

@@ -1,9 +1,10 @@
 #include "Model.h"
 #include "Tiro.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
-Model::Model(float m, float k, float b, float x0, float y0, float v0, float dt,Tiro &tiro) : tiro(tiro){
+Model::Model(float m, float k, float b, float x0, float y0, float v0, float dt, vector<Tiro> &tiro) : tiro(tiro){
       //setando variaveis iniciais
       this->m = m;
       this->k = k;
@@ -48,7 +49,9 @@ float Model::get_v_atual(){
 void Model::set_v_atual(float new_v){
     this->v_atual = new_v;
 }
-
-Tiro& Model::getTiro(){
+void Model::atirar(Tiro &tiro) {
+    this->tiro.push_back(tiro);
+}
+vector<Tiro>& Model::getTiro(){
     return (this->tiro);
 }

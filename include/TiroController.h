@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "Tiro.h"
+#include <vector>
+using namespace std;
 
 class TiroController{
     private:
@@ -12,5 +14,5 @@ class TiroController{
     public:
         TiroController();
         void calcular_posicao(Tiro &tiro);
-        void update(Tiro &tiro);
+        void update(vector<Tiro> &tiro);
 };

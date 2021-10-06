@@ -9,6 +9,8 @@
 ../include/Model.h
 Tiro.h
 ../include/Tiro.h
+vector
+-
 
 ../include/Tiro.h
 
@@ -18,5 +20,7 @@ Model.h
 Tiro.h
 /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Tiro.h
 iostream
+-
+vector
 -
 
