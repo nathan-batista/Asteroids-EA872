@@ -21,8 +21,9 @@ int main() {
     asteroidcontroller.update();
     //Tiro &tirinho = model.getTiro();
     tiroController.update(model.getTiro());
-    view.renderizar();
     controller.update();
+    view.renderizar();
+    
   }
 
   view.destruir();

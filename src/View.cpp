@@ -70,8 +70,8 @@ void View::renderizar(){
     target_ast.h = asteroid.height;
     target_ast.w = asteroid.width;
     SDL_RenderClear(this->renderer);
-    
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
+
     if(tiro.flag && !tiro.destruir){
         cout <<"Posicao = " <<tiro.get_y_atual() << endl;
         target_tiro.x = tiro.get_x_atual();
@@ -84,6 +84,7 @@ void View::renderizar(){
         SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
     }
     if(!asteroid.destruir){
+        cout<<"Asteroideeee" << endl;
         SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));
     }
 

@@ -74,10 +74,20 @@ void Controller::update(){
     if (model.get_x_atual() < asteroid.get_x_atual() + asteroid.width &&
         model.get_x_atual() + model.width > asteroid.get_x_atual() &&
         model.get_y_atual() < asteroid.get_y_atual() + asteroid.height &&
-        model.get_y_atual() + model.height > asteroid.get_y_atual()) {
-    // collision detected!
+        model.get_y_atual() + model.height > asteroid.get_y_atual() && !asteroid.destruir) {
+        // collision detected!
         model.destruir=true;
         asteroid.destruir=true;
-        cout << "Não ta destruindo as coisas" << endl;
-    }             
+    }
+    if(tiro.flag){
+        if (tiro.get_x_atual() < asteroid.get_x_atual() + asteroid.width &&
+        tiro.get_x_atual() + tiro.width > asteroid.get_x_atual() &&
+        tiro.get_y_atual() < asteroid.get_y_atual() + asteroid.height &&
+        tiro.get_y_atual() + tiro.height > asteroid.get_y_atual() && !asteroid.destruir) {
+            // collision detected!
+            tiro.destruir = true;
+            asteroid.destruir = true;
+        }     
+    }
+                      
 }
