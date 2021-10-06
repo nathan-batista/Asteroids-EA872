@@ -12,7 +12,7 @@ int main() {
   Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
   View view = View(model, asteroid,tiro);
   AsteroidController asteroidcontroller = AsteroidController(asteroid);
-  Controller controller = Controller(model);
+  Controller controller = Controller(model,tiro,asteroid);
   TiroController tiroController = TiroController();
 
   // Laco principal do jogo
@@ -22,6 +22,7 @@ int main() {
     //Tiro &tirinho = model.getTiro();
     tiroController.update(model.getTiro());
     view.renderizar();
+    controller.update();
   }
 
   view.destruir();

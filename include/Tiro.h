@@ -11,6 +11,9 @@ class Tiro{
     public:
         Tiro(float x0, float y0, float vx, float vy, float dt);
         bool flag;
+        bool destruir;
+        float width;
+        float height;
         float get_dt();
         float get_x_atual();
         float get_y_atual();

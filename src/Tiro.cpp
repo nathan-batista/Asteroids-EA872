@@ -8,6 +8,9 @@ Tiro::Tiro(float x, float y, float vx, float vy, float dt){
       this->vy_atual= vy;
       this->dt = dt;
       this->flag = false;
+      this->destruir = false;
+      this->width = 50;
+      this->height=50;
 };
 
 float Tiro::get_dt(){

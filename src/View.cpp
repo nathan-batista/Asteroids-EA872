@@ -62,27 +62,31 @@ void View::renderizar(){
     // Desenhar a cena
     target.x = model.get_x_atual();
     target.y = model.get_y_atual();
-    target.h = 65;
-    target.w = 65;
+    target.h = model.height;
+    target.w = model.width;
 
     target_ast.x = asteroid.get_x_atual();
     target_ast.y = asteroid.get_y_atual();
-    target_ast.h = 65;
-    target_ast.w = 65;
+    target_ast.h = asteroid.height;
+    target_ast.w = asteroid.width;
     SDL_RenderClear(this->renderer);
     
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
-    if(tiro.flag){
+    if(tiro.flag && !tiro.destruir){
         cout <<"Posicao = " <<tiro.get_y_atual() << endl;
         target_tiro.x = tiro.get_x_atual();
         target_tiro.y = tiro.get_y_atual();
-        target_tiro.w = 100;
-        target_tiro.h = 100;
+        target_tiro.w = tiro.width;
+        target_tiro.h = tiro.height;
         SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
     }
-    SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
-    SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));
-    
+    if(!model.destruir){
+        SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
+    }
+    if(!asteroid.destruir){
+        SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));
+    }
+
     SDL_RenderPresent(this->renderer);
     // Delay para diminuir o framerate
     SDL_Delay(10);

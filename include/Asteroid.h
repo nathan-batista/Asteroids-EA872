@@ -13,6 +13,9 @@ class Asteroid{
     public:
         Asteroid(float x0, float y0, float vx, float vy, float dt);
         float get_dt();
+        bool destruir;
+        float width;
+        float height;
         float get_x_atual();
         float get_y_atual();
         float get_vx_atual();

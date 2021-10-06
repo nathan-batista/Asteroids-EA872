@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Controller::Controller(Model &model) : model(model){
+Controller::Controller(Model &model,Tiro &tiro,Asteroid &asteroid) : model(model), tiro(tiro), asteroid(asteroid){
         this->rodando = true;
         this->state = SDL_GetKeyboardState(nullptr);
         f=0;
@@ -37,6 +37,7 @@ void Controller::polling(){
                 tiroNave.set_vy(vy);
                 tiroNave.set_dt(dt);
                 tiroNave.flag = true;
+                tiroNave.destruir = false;
                 cout << "Cheguei no negocio" << endl;
             }
         }
@@ -62,12 +63,21 @@ void Controller::estimar_aceleracao(){
 void Controller::calcular_velocidade(){
     model.set_v_atual(model.get_v_atual() + a * model.get_dt());
 }
-void Controller::calcular_posicao(){  
+void Controller::calcular_posicao(){
     model.set_x_atual(model.get_x_atual() + model.get_v_atual() * model.get_dt());
 }
 void Controller::update(){
     //calcular_forca();
     //estimar_aceleracao();   
     //calcular_velocidade();
-    //calcular_posicao();              
+    //calcular_posicao(); 
+    if (model.get_x_atual() < asteroid.get_x_atual() + asteroid.width &&
+        model.get_x_atual() + model.width > asteroid.get_x_atual() &&
+        model.get_y_atual() < asteroid.get_y_atual() + asteroid.height &&
+        model.get_y_atual() + model.height > asteroid.get_y_atual()) {
+    // collision detected!
+        model.destruir=true;
+        asteroid.destruir=true;
+        cout << "Não ta destruindo as coisas" << endl;
+    }             
 }

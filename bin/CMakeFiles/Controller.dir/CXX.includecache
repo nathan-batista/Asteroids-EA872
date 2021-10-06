@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+../include/Asteroid.h
+
 ../include/Controller.h
 SDL2/SDL.h
 -
@@ -13,6 +15,10 @@ SDL2/SDL_image.h
 -
 Model.h
 ../include/Model.h
+Asteroid.h
+../include/Asteroid.h
+Tiro.h
+../include/Tiro.h
 
 ../include/Model.h
 Tiro.h

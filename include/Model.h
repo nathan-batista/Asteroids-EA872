@@ -21,6 +21,9 @@ class Model{
     public:
         Model(float m, float k, float b, float x0, float y0, float v0, float dt,Tiro &tiro);
         float get_m();
+        float width;
+        float height;
+        bool destruir;
         float get_k();
         float get_b();
         float get_dt();

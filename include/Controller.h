@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "Model.h"
+#include "Asteroid.h"
+#include "Tiro.h"
 
 #ifndef _Controller_
 #define _Controller_
@@ -12,10 +14,12 @@ class Controller{
         SDL_Event evento; // eventos discretos
         //const Uint8* state;  // estado do teclado
         Model &model;
+        Tiro &tiro;
+        Asteroid &asteroid;
         const Uint8* state;
 
     public:
-        Controller(Model &model);
+        Controller(Model &model,Tiro &tiro,Asteroid &asteroid);
         void polling();
         bool get_rodando();
         void calcular_forca();
