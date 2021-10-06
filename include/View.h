@@ -25,7 +25,6 @@ class View{
         View(Model &model, Asteroid &asteroid,Tiro &tiro);
         void renderizar();
         void destruir();
-        void criarTiro(Tiro &tiro);
 };
 
 #endif

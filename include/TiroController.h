@@ -11,6 +11,6 @@ class TiroController{
 
     public:
         TiroController();
-        void calcular_posicao(Tiro tiro);
-        void update(Tiro tiro);
+        void calcular_posicao(Tiro &tiro);
+        void update(Tiro &tiro);
 };
