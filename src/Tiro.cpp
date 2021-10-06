@@ -26,6 +26,10 @@ float Tiro::get_vy_atual(){
     return this->vy_atual;
 }
 
+void Tiro::set_vy(float new_vy){
+    this->vy_atual= new_vy;
+}
+
 void Tiro::set_x_atual(float new_x){
     this->x_atual = new_x;
 }
@@ -35,4 +39,8 @@ void Tiro::set_y_atual(float new_y){
 
 bool Tiro::getFlag(){
     return this->flag;
+}
+
+void Tiro::set_dt(float new_dt){
+    this->dt = new_dt;
 }

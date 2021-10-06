@@ -10,11 +10,11 @@ TiroController::TiroController(){
 void TiroController::calcular_posicao(Tiro &tiro){ 
     std::cout << "To aqui" << std::endl;
     if(tiro.getFlag()){
-        std::cout << "To no TiroController" << std::endl;
+        std::cout << "To no TiroController e y atual = " <<  tiro.get_y_atual() << std::endl;
+        std::cout << tiro.get_vy_atual() << std::endl;
         float novoy = tiro.get_y_atual() + tiro.get_vy_atual() * tiro.get_dt();
-        tiro.set_x_atual(tiro.get_x_atual() + tiro.get_vx_atual() * tiro.get_dt());
         tiro.set_y_atual(novoy);
-        std::cout << "Novo y: " << novoy << std::endl;
+        std::cout << "Novo y: " << tiro.get_y_atual()<< std::endl;
     }
 }
 void TiroController::update(Tiro &tiro){

@@ -31,9 +31,12 @@ void Controller::polling(){
                 //float vx = (model.get_vx_atual() > 0) ? 16. : 0. ;
                 float vy = -16;
                 float dt = model.get_dt();
-                Tiro tiroNave = Tiro(x,y,0,vy,dt);
+                Tiro &tiroNave = model.getTiro();
+                tiroNave.set_x_atual(x);
+                tiroNave.set_y_atual(y);
+                tiroNave.set_vy(vy);
+                tiroNave.set_dt(dt);
                 tiroNave.flag = true;
-                model.setTiro(tiroNave);
                 cout << "Cheguei no negocio" << endl;
             }
         }

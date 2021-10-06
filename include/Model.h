@@ -17,9 +17,9 @@ class Model{
         float v_atual;
         char *imagem_principal;
         char *imagem_fundo;
-        Tiro tiro;
+        Tiro &tiro;
     public:
-        Model(float m, float k, float b, float x0, float y0, float v0, float dt,Tiro tiro);
+        Model(float m, float k, float b, float x0, float y0, float v0, float dt,Tiro &tiro);
         float get_m();
         float get_k();
         float get_b();
@@ -30,7 +30,6 @@ class Model{
         void set_y_atual(float new_y);
         float get_v_atual();
         void set_v_atual(float new_v);
-        void setTiro(Tiro &tiro);
         Tiro& getTiro();
 };
 

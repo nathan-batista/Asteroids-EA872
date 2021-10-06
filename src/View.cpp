@@ -69,19 +69,17 @@ void View::renderizar(){
     target_ast.y = asteroid.get_y_atual();
     target_ast.h = 65;
     target_ast.w = 65;
-    
-    target_tiro.x = model.getTiro().get_x_atual();
-    target_tiro.y = model.getTiro().get_y_atual();
-    target_tiro.w = 100;
-    target_tiro.h = 100;
-    if(tiro.getFlag()){
-        cout << "ENTREI AQUI CRL" << endl;
-        cout << target_tiro.y << endl;
-    }
     SDL_RenderClear(this->renderer);
     
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
-    SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
+    if(tiro.flag){
+        cout <<"Posicao = " <<tiro.get_y_atual() << endl;
+        target_tiro.x = tiro.get_x_atual();
+        target_tiro.y = tiro.get_y_atual();
+        target_tiro.w = 100;
+        target_tiro.h = 100;
+        SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
+    }
     SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
     SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));
     
@@ -96,10 +94,6 @@ void View::destruir(){
     SDL_DestroyRenderer(this->renderer);
     SDL_DestroyWindow(this->window);
     SDL_Quit();
-}
-
-void View::criarTiro(Tiro &tiro){
-    this->tiro = tiro;
 }
 
 
