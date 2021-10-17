@@ -15,6 +15,8 @@ SDL2/SDL_image.h
 -
 Asteroid.h
 ../include/Asteroid.h
+vector
+-
 
 ../include/Controller.h
 SDL2/SDL.h

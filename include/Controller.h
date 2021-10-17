@@ -18,15 +18,13 @@ class Controller{
         //const Uint8* state;  // estado do teclado
         Model &model;
 
-        Asteroid &asteroid;
+        vector<Asteroid> &asteroid;
         const Uint8* state;
 
     public:
-        Controller(Model &model, Asteroid &asteroid);
+        Controller(Model &model, vector<Asteroid> &asteroid);
         void polling();
         bool get_rodando();
-        void calcular_forca();
-        void estimar_aceleracao();
         void calcular_velocidade();
         void calcular_posicao();
         void update();

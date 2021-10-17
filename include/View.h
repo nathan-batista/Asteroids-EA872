@@ -11,7 +11,7 @@ using namespace std;
 class View{
     private:
         Model &model;
-        Asteroid &asteroid;
+        vector<Asteroid> &asteroid;
         SDL_Renderer* renderer;
         SDL_Window* window;
         SDL_Rect target;
@@ -22,7 +22,7 @@ class View{
         SDL_Texture *texture3;
         SDL_Texture *texture4;
     public:
-        View(Model &model, Asteroid &asteroid);
+        View(Model &model, vector<Asteroid> &asteroid);
         void renderizar();
         void destruir();
 };

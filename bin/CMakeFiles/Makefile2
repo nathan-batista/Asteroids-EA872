@@ -276,10 +276,10 @@ CMakeFiles/Model.dir/clean:
 # All Build rule for target.
 CMakeFiles/Asteroids.dir/all: CMakeFiles/TiroController.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/Tiro.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/AsteroidController.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/Asteroid.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/View.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/Controller.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/AsteroidController.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/View.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/Asteroid.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/Model.dir/all
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/depend
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/build

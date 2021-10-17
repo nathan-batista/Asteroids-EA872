@@ -8,12 +8,13 @@ using namespace std;
 const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 600;
 
-View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid) {
+View::View(Model &model, vector<Asteroid> &asteroid) : model(model), asteroid(asteroid) {
 
     // Inicializando o submodelema de video do SDL
     if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
         cout << SDL_GetError();
     }
+
     // Criando uma janela
     this->window = nullptr;
     this->window = SDL_CreateWindow("Demonstracao do SDL2",
@@ -27,7 +28,7 @@ View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid) 
         SDL_Quit();
     }
 
-        // Inicializando o renderizador
+    // Inicializando o renderizador
     this->renderer = SDL_CreateRenderer(
         this->window, -1,
         SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -36,7 +37,9 @@ View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid) 
         cout << SDL_GetError();
         SDL_Quit();
     }
+
     // Carregando texturas
+
     // personagem
     this->texture = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");  
     this->target.x = model.get_x_atual();
@@ -44,9 +47,7 @@ View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid) 
     // fundo
     this->texture2 = IMG_LoadTexture(this->renderer, "../assets/space1.jpeg");      
     //Asteroid
-    this->texture3 = IMG_LoadTexture(this->renderer,"../assets/capi.png" );
-    this->target_ast.x = asteroid.get_x_atual();
-    this->target_ast.y = asteroid.get_y_atual();
+    this->texture3 = IMG_LoadTexture(this->renderer,"../assets/meteor.png" );
 
     this->texture4 = IMG_LoadTexture(this->renderer,"../assets/tiro.png" );
     this->target_tiro.x = 50;
@@ -54,7 +55,6 @@ View::View(Model &model, Asteroid &asteroid) : model(model), asteroid(asteroid) 
     
 
     SDL_QueryTexture(this->texture, nullptr, nullptr, &(this->target.w), &(this->target.h));
-
 }
 
 void View::renderizar(){
@@ -64,15 +64,9 @@ void View::renderizar(){
     target.h = model.height;
     target.w = model.width;
 
-    target_ast.x = asteroid.get_x_atual();
-    target_ast.y = asteroid.get_y_atual();
-    target_ast.h = asteroid.height;
-    target_ast.w = asteroid.width;
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
-
-
-    
+ 
     vector<Tiro> tiros = model.getTiro();
     for(int i = 0; i < tiros.size(); i++) {
         target_tiro.x = tiros[i].get_x_atual();
@@ -82,12 +76,16 @@ void View::renderizar(){
         SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
     }
 
+    for(int i = 0; i < asteroid.size(); i++) {
+        target_ast.x = asteroid[i].get_x_atual();
+        target_ast.y = asteroid[i].get_y_atual();
+        target_ast.h = asteroid[i].height;
+        target_ast.w = asteroid[i].width;
+        SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));    
+    }
+
     if(!model.destruir){
         SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
-    }
-    if(!asteroid.destruir){
-        cout<<"Asteroideeee" << endl;
-        SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));
     }
 
     SDL_RenderPresent(this->renderer);

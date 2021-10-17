@@ -12,12 +12,13 @@ using namespace std;
 int main() { 
   //Tiro tiro = Tiro(-10,-10,0,0,0);
   vector<Tiro> tiros;
+  vector<Asteroid> asteroids;
 
   Model model = Model(1, 1, 0, 320, 120, 30, 0.1, tiros);
   Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
-  View view = View(model, asteroid);
-  AsteroidController asteroidcontroller = AsteroidController(asteroid);
-  Controller controller = Controller(model, asteroid);
+  View view = View(model, asteroids);
+  AsteroidController asteroidcontroller = AsteroidController(asteroids);
+  Controller controller = Controller(model, asteroids);
   TiroController tiroController = TiroController();
 
   // Laco principal do jogo

@@ -25,6 +25,8 @@ vector
 ../include/Model.h
 Tiro.h
 ../include/Tiro.h
+vector
+-
 
 ../include/Tiro.h
 
@@ -40,5 +42,9 @@ Tiro.h
 iostream
 -
 vector
+-
+cstdlib
+-
+algorithm
 -
 
