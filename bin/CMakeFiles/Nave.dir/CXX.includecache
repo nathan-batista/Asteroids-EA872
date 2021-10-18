@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Nave.h
+Tiro.h
+../include/Tiro.h
+vector
+-
+
+../include/Tiro.h
+
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/Nave.cpp
+Nave.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/Nave.h
+Tiro.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/Tiro.h
+iostream
+-
+vector
+-
+

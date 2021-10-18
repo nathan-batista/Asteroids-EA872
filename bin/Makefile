@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872"
+CMAKE_SOURCE_DIR = /home/ariadne/Documentos/ea872/Asteroids-EA872
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin"
+CMAKE_BINARY_DIR = /home/ariadne/Documentos/ea872/Asteroids-EA872/bin
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -163,6 +163,19 @@ Asteroid/fast:
 .PHONY : Asteroid/fast
 
 #=============================================================================
+# Target rules for targets named NaveController
+
+# Build rule for target.
+NaveController: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NaveController
+.PHONY : NaveController
+
+# fast build rule for target.
+NaveController/fast:
+	$(MAKE) -f CMakeFiles/NaveController.dir/build.make CMakeFiles/NaveController.dir/build
+.PHONY : NaveController/fast
+
+#=============================================================================
 # Target rules for targets named View
 
 # Build rule for target.
@@ -176,30 +189,17 @@ View/fast:
 .PHONY : View/fast
 
 #=============================================================================
-# Target rules for targets named Controller
+# Target rules for targets named Nave
 
 # Build rule for target.
-Controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Controller
-.PHONY : Controller
+Nave: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Nave
+.PHONY : Nave
 
 # fast build rule for target.
-Controller/fast:
-	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/build
-.PHONY : Controller/fast
-
-#=============================================================================
-# Target rules for targets named Model
-
-# Build rule for target.
-Model: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Model
-.PHONY : Model
-
-# fast build rule for target.
-Model/fast:
-	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/build
-.PHONY : Model/fast
+Nave/fast:
+	$(MAKE) -f CMakeFiles/Nave.dir/build.make CMakeFiles/Nave.dir/build
+.PHONY : Nave/fast
 
 #=============================================================================
 # Target rules for targets named Asteroids
@@ -268,59 +268,59 @@ src/AsteroidController.cpp.s:
 	$(MAKE) -f CMakeFiles/AsteroidController.dir/build.make CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.s
 .PHONY : src/AsteroidController.cpp.s
 
-src/Controller.o: src/Controller.cpp.o
+src/Nave.o: src/Nave.cpp.o
 
-.PHONY : src/Controller.o
-
-# target to build an object file
-src/Controller.cpp.o:
-	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/src/Controller.cpp.o
-.PHONY : src/Controller.cpp.o
-
-src/Controller.i: src/Controller.cpp.i
-
-.PHONY : src/Controller.i
-
-# target to preprocess a source file
-src/Controller.cpp.i:
-	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/src/Controller.cpp.i
-.PHONY : src/Controller.cpp.i
-
-src/Controller.s: src/Controller.cpp.s
-
-.PHONY : src/Controller.s
-
-# target to generate assembly for a file
-src/Controller.cpp.s:
-	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/src/Controller.cpp.s
-.PHONY : src/Controller.cpp.s
-
-src/Model.o: src/Model.cpp.o
-
-.PHONY : src/Model.o
+.PHONY : src/Nave.o
 
 # target to build an object file
-src/Model.cpp.o:
-	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/src/Model.cpp.o
-.PHONY : src/Model.cpp.o
+src/Nave.cpp.o:
+	$(MAKE) -f CMakeFiles/Nave.dir/build.make CMakeFiles/Nave.dir/src/Nave.cpp.o
+.PHONY : src/Nave.cpp.o
 
-src/Model.i: src/Model.cpp.i
+src/Nave.i: src/Nave.cpp.i
 
-.PHONY : src/Model.i
+.PHONY : src/Nave.i
 
 # target to preprocess a source file
-src/Model.cpp.i:
-	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/src/Model.cpp.i
-.PHONY : src/Model.cpp.i
+src/Nave.cpp.i:
+	$(MAKE) -f CMakeFiles/Nave.dir/build.make CMakeFiles/Nave.dir/src/Nave.cpp.i
+.PHONY : src/Nave.cpp.i
 
-src/Model.s: src/Model.cpp.s
+src/Nave.s: src/Nave.cpp.s
 
-.PHONY : src/Model.s
+.PHONY : src/Nave.s
 
 # target to generate assembly for a file
-src/Model.cpp.s:
-	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/src/Model.cpp.s
-.PHONY : src/Model.cpp.s
+src/Nave.cpp.s:
+	$(MAKE) -f CMakeFiles/Nave.dir/build.make CMakeFiles/Nave.dir/src/Nave.cpp.s
+.PHONY : src/Nave.cpp.s
+
+src/NaveController.o: src/NaveController.cpp.o
+
+.PHONY : src/NaveController.o
+
+# target to build an object file
+src/NaveController.cpp.o:
+	$(MAKE) -f CMakeFiles/NaveController.dir/build.make CMakeFiles/NaveController.dir/src/NaveController.cpp.o
+.PHONY : src/NaveController.cpp.o
+
+src/NaveController.i: src/NaveController.cpp.i
+
+.PHONY : src/NaveController.i
+
+# target to preprocess a source file
+src/NaveController.cpp.i:
+	$(MAKE) -f CMakeFiles/NaveController.dir/build.make CMakeFiles/NaveController.dir/src/NaveController.cpp.i
+.PHONY : src/NaveController.cpp.i
+
+src/NaveController.s: src/NaveController.cpp.s
+
+.PHONY : src/NaveController.s
+
+# target to generate assembly for a file
+src/NaveController.cpp.s:
+	$(MAKE) -f CMakeFiles/NaveController.dir/build.make CMakeFiles/NaveController.dir/src/NaveController.cpp.s
+.PHONY : src/NaveController.cpp.s
 
 src/Tiro.o: src/Tiro.cpp.o
 
@@ -437,14 +437,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... TiroController"
 	@echo "... Tiro"
 	@echo "... AsteroidController"
 	@echo "... Asteroid"
+	@echo "... NaveController"
 	@echo "... View"
-	@echo "... edit_cache"
-	@echo "... Controller"
-	@echo "... Model"
+	@echo "... Nave"
 	@echo "... Asteroids"
 	@echo "... src/Asteroid.o"
 	@echo "... src/Asteroid.i"
@@ -452,12 +452,12 @@ help:
 	@echo "... src/AsteroidController.o"
 	@echo "... src/AsteroidController.i"
 	@echo "... src/AsteroidController.s"
-	@echo "... src/Controller.o"
-	@echo "... src/Controller.i"
-	@echo "... src/Controller.s"
-	@echo "... src/Model.o"
-	@echo "... src/Model.i"
-	@echo "... src/Model.s"
+	@echo "... src/Nave.o"
+	@echo "... src/Nave.i"
+	@echo "... src/Nave.s"
+	@echo "... src/NaveController.o"
+	@echo "... src/NaveController.i"
+	@echo "... src/NaveController.s"
 	@echo "... src/Tiro.o"
 	@echo "... src/Tiro.i"
 	@echo "... src/Tiro.s"

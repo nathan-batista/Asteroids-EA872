@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872"
+CMAKE_SOURCE_DIR = /home/ariadne/Documentos/ea872/Asteroids-EA872
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin"
+CMAKE_BINARY_DIR = /home/ariadne/Documentos/ea872/Asteroids-EA872/bin
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -57,9 +57,9 @@ all: CMakeFiles/TiroController.dir/all
 all: CMakeFiles/Tiro.dir/all
 all: CMakeFiles/AsteroidController.dir/all
 all: CMakeFiles/Asteroid.dir/all
+all: CMakeFiles/NaveController.dir/all
 all: CMakeFiles/View.dir/all
-all: CMakeFiles/Controller.dir/all
-all: CMakeFiles/Model.dir/all
+all: CMakeFiles/Nave.dir/all
 all: CMakeFiles/Asteroids.dir/all
 
 .PHONY : all
@@ -74,9 +74,9 @@ clean: CMakeFiles/TiroController.dir/clean
 clean: CMakeFiles/Tiro.dir/clean
 clean: CMakeFiles/AsteroidController.dir/clean
 clean: CMakeFiles/Asteroid.dir/clean
+clean: CMakeFiles/NaveController.dir/clean
 clean: CMakeFiles/View.dir/clean
-clean: CMakeFiles/Controller.dir/clean
-clean: CMakeFiles/Model.dir/clean
+clean: CMakeFiles/Nave.dir/clean
 clean: CMakeFiles/Asteroids.dir/clean
 
 .PHONY : clean
@@ -88,14 +88,14 @@ clean: CMakeFiles/Asteroids.dir/clean
 CMakeFiles/TiroController.dir/all:
 	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/depend
 	$(MAKE) -f CMakeFiles/TiroController.dir/build.make CMakeFiles/TiroController.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=13,14 "Built target TiroController"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=13,14 "Built target TiroController"
 .PHONY : CMakeFiles/TiroController.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TiroController.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TiroController.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
 .PHONY : CMakeFiles/TiroController.dir/rule
 
 # Convenience name for target.
@@ -115,14 +115,14 @@ CMakeFiles/TiroController.dir/clean:
 CMakeFiles/Tiro.dir/all:
 	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/depend
 	$(MAKE) -f CMakeFiles/Tiro.dir/build.make CMakeFiles/Tiro.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=11,12 "Built target Tiro"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=11,12 "Built target Tiro"
 .PHONY : CMakeFiles/Tiro.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Tiro.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Tiro.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
 .PHONY : CMakeFiles/Tiro.dir/rule
 
 # Convenience name for target.
@@ -142,14 +142,14 @@ CMakeFiles/Tiro.dir/clean:
 CMakeFiles/AsteroidController.dir/all:
 	$(MAKE) -f CMakeFiles/AsteroidController.dir/build.make CMakeFiles/AsteroidController.dir/depend
 	$(MAKE) -f CMakeFiles/AsteroidController.dir/build.make CMakeFiles/AsteroidController.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=3,4 "Built target AsteroidController"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=3,4 "Built target AsteroidController"
 .PHONY : CMakeFiles/AsteroidController.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/AsteroidController.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/AsteroidController.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
 .PHONY : CMakeFiles/AsteroidController.dir/rule
 
 # Convenience name for target.
@@ -169,14 +169,14 @@ CMakeFiles/AsteroidController.dir/clean:
 CMakeFiles/Asteroid.dir/all:
 	$(MAKE) -f CMakeFiles/Asteroid.dir/build.make CMakeFiles/Asteroid.dir/depend
 	$(MAKE) -f CMakeFiles/Asteroid.dir/build.make CMakeFiles/Asteroid.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=1,2 "Built target Asteroid"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=1,2 "Built target Asteroid"
 .PHONY : CMakeFiles/Asteroid.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Asteroid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Asteroid.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
 .PHONY : CMakeFiles/Asteroid.dir/rule
 
 # Convenience name for target.
@@ -190,20 +190,47 @@ CMakeFiles/Asteroid.dir/clean:
 .PHONY : CMakeFiles/Asteroid.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/NaveController.dir
+
+# All Build rule for target.
+CMakeFiles/NaveController.dir/all:
+	$(MAKE) -f CMakeFiles/NaveController.dir/build.make CMakeFiles/NaveController.dir/depend
+	$(MAKE) -f CMakeFiles/NaveController.dir/build.make CMakeFiles/NaveController.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=9,10 "Built target NaveController"
+.PHONY : CMakeFiles/NaveController.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/NaveController.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NaveController.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
+.PHONY : CMakeFiles/NaveController.dir/rule
+
+# Convenience name for target.
+NaveController: CMakeFiles/NaveController.dir/rule
+
+.PHONY : NaveController
+
+# clean rule for target.
+CMakeFiles/NaveController.dir/clean:
+	$(MAKE) -f CMakeFiles/NaveController.dir/build.make CMakeFiles/NaveController.dir/clean
+.PHONY : CMakeFiles/NaveController.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/View.dir
 
 # All Build rule for target.
 CMakeFiles/View.dir/all:
 	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/depend
 	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=15,16 "Built target View"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=15,16 "Built target View"
 .PHONY : CMakeFiles/View.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/View.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/View.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
 .PHONY : CMakeFiles/View.dir/rule
 
 # Convenience name for target.
@@ -217,80 +244,53 @@ CMakeFiles/View.dir/clean:
 .PHONY : CMakeFiles/View.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Controller.dir
+# Target rules for target CMakeFiles/Nave.dir
 
 # All Build rule for target.
-CMakeFiles/Controller.dir/all:
-	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/depend
-	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=7,8 "Built target Controller"
-.PHONY : CMakeFiles/Controller.dir/all
+CMakeFiles/Nave.dir/all:
+	$(MAKE) -f CMakeFiles/Nave.dir/build.make CMakeFiles/Nave.dir/depend
+	$(MAKE) -f CMakeFiles/Nave.dir/build.make CMakeFiles/Nave.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=7,8 "Built target Nave"
+.PHONY : CMakeFiles/Nave.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Controller.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Controller.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
-.PHONY : CMakeFiles/Controller.dir/rule
+CMakeFiles/Nave.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Nave.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
+.PHONY : CMakeFiles/Nave.dir/rule
 
 # Convenience name for target.
-Controller: CMakeFiles/Controller.dir/rule
+Nave: CMakeFiles/Nave.dir/rule
 
-.PHONY : Controller
-
-# clean rule for target.
-CMakeFiles/Controller.dir/clean:
-	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/clean
-.PHONY : CMakeFiles/Controller.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/Model.dir
-
-# All Build rule for target.
-CMakeFiles/Model.dir/all:
-	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/depend
-	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=9,10 "Built target Model"
-.PHONY : CMakeFiles/Model.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Model.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Model.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
-.PHONY : CMakeFiles/Model.dir/rule
-
-# Convenience name for target.
-Model: CMakeFiles/Model.dir/rule
-
-.PHONY : Model
+.PHONY : Nave
 
 # clean rule for target.
-CMakeFiles/Model.dir/clean:
-	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/clean
-.PHONY : CMakeFiles/Model.dir/clean
+CMakeFiles/Nave.dir/clean:
+	$(MAKE) -f CMakeFiles/Nave.dir/build.make CMakeFiles/Nave.dir/clean
+.PHONY : CMakeFiles/Nave.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Asteroids.dir
 
 # All Build rule for target.
-CMakeFiles/Asteroids.dir/all: CMakeFiles/TiroController.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/Tiro.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/Controller.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/AsteroidController.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/View.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/Asteroid.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/Model.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/Tiro.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/TiroController.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/Nave.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/NaveController.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/View.dir/all
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/depend
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=5,6 "Built target Asteroids"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=5,6 "Built target Asteroids"
 .PHONY : CMakeFiles/Asteroids.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Asteroids.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 16
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 16
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Asteroids.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles 0
 .PHONY : CMakeFiles/Asteroids.dir/rule
 
 # Convenience name for target.

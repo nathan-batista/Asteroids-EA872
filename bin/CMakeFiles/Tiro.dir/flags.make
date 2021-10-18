@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/include" 
+CXX_INCLUDES = -I/home/ariadne/Documentos/ea872/Asteroids-EA872/include 
 

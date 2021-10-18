@@ -1,6 +1,7 @@
-#include "Controller.h"
+#include "NaveController.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include "Tiro.h"
 #include <iostream>
 #include <vector>
@@ -9,17 +10,17 @@
 
 using namespace std;
 
-Controller::Controller(Model &model,vector<Asteroid> &asteroid) : model(model), asteroid(asteroid){
+NaveController::NaveController(Nave &nave,vector<Asteroid> &asteroid) : nave(nave), asteroid(asteroid){
         this->rodando = true;
         this->state = SDL_GetKeyboardState(nullptr);
 }
 
-void Controller::polling(){
+void NaveController::polling(){
       SDL_PumpEvents(); // atualiza estado do teclado
-      if (state[SDL_SCANCODE_LEFT]) model.set_x_atual(model.get_x_atual()-10);
-      if (state[SDL_SCANCODE_RIGHT]) model.set_x_atual(model.get_x_atual() + 10);
-      if (state[SDL_SCANCODE_UP]) model.set_y_atual(model.get_y_atual() - 10);
-      if (state[SDL_SCANCODE_DOWN]) model.set_y_atual(model.get_y_atual() + 10);
+      if (state[SDL_SCANCODE_LEFT]) nave.set_x_atual(nave.get_x_atual()-10);
+      if (state[SDL_SCANCODE_RIGHT]) nave.set_x_atual(nave.get_x_atual() + 10);
+      if (state[SDL_SCANCODE_UP]) nave.set_y_atual(nave.get_y_atual() - 10);
+      if (state[SDL_SCANCODE_DOWN]) nave.set_y_atual(nave.get_y_atual() + 10);
 
       while (SDL_PollEvent(&(this->evento))) {
         if (this->evento.type == SDL_QUIT) {
@@ -28,13 +29,13 @@ void Controller::polling(){
 
         else if(this->evento.type == SDL_KEYDOWN){
             if(state[SDL_SCANCODE_SPACE]){
-                float x = model.get_x_atual();
-                float y = model.get_y_atual();
+                float x = nave.get_x_atual();
+                float y = nave.get_y_atual();
                 float vy = -100;
-                float dt = model.get_dt();
+                float dt = nave.get_dt();
 
                 Tiro tiroNave = Tiro(x, y, 0, vy, dt);
-                model.atirar(tiroNave);            
+                nave.atirar(tiroNave);            
             }
         }
     }
@@ -51,27 +52,27 @@ void Controller::polling(){
   
 } 
 
-bool Controller::get_rodando(){
+bool NaveController::get_rodando(){
       return this->rodando;
 }
 
-void Controller::calcular_velocidade(){
-    model.set_v_atual(model.get_v_atual() + a * model.get_dt());
+void NaveController::calcular_velocidade(){
+    nave.set_v_atual(nave.get_v_atual() + a * nave.get_dt());
 }
 
-void Controller::calcular_posicao(){
-    model.set_x_atual(model.get_x_atual() + model.get_v_atual() * model.get_dt());
+void NaveController::calcular_posicao(){
+    nave.set_x_atual(nave.get_x_atual() + nave.get_v_atual() * nave.get_dt());
 }
 
-void Controller::update(){
+void NaveController::update(){
     vector<int> ast1, tir1;
     vector <Tiro> tiros; 
 
     for(int i = 0; i < asteroid.size(); i++) {
-        if (model.get_x_atual() < asteroid[i].get_x_atual() + asteroid[i].width &&
-        model.get_x_atual() + model.width > asteroid[i].get_x_atual() &&
-        model.get_y_atual() < asteroid[i].get_y_atual() + asteroid[i].height &&
-        model.get_y_atual() + model.height > asteroid[i].get_y_atual() && !asteroid[i].destruir) {
+        if (nave.get_x_atual() < asteroid[i].get_x_atual() + asteroid[i].width &&
+        nave.get_x_atual() + nave.width > asteroid[i].get_x_atual() &&
+        nave.get_y_atual() < asteroid[i].get_y_atual() + asteroid[i].height &&
+        nave.get_y_atual() + nave.height > asteroid[i].get_y_atual() && !asteroid[i].destruir) {
        
             this->rodando = false;
         }
@@ -91,7 +92,8 @@ void Controller::update(){
     
 
     ast1.clear();
-    tiros = model.getTiro();
+    
+    tiros = nave.getTiro();
     for(int i = 0; i < tiros.size(); i ++) {
         if(tiros[i].get_y_atual() < -200) {
             tir1.push_back(i);
@@ -100,7 +102,7 @@ void Controller::update(){
     
     for(int i = 0; i<tir1.size();i++){
         tiros.erase(tiros.begin() + tir1[i]);
-        for(int k = i+1;k<tir1.size();k++){
+        for(int k = i+1; k<tir1.size(); k++){
             tir1[k] -= 1;
         }
     }
@@ -118,6 +120,8 @@ void Controller::update(){
                  
                 ast1.push_back(j);
                 tir1.push_back(i);
+                nave.update_score(30);
+
             }   
         }
         for(int k=0;k<ast1.size();k++){
@@ -138,6 +142,6 @@ void Controller::update(){
 
 }
 
-void Controller::set_rodando(bool valor){
+void NaveController::set_rodando(bool valor){
     this->rodando=valor;
 }

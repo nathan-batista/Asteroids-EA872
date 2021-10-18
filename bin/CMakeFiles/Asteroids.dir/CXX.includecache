@@ -18,21 +18,21 @@ Asteroid.h
 vector
 -
 
-../include/Controller.h
-SDL2/SDL.h
--
-SDL2/SDL_image.h
--
-Model.h
-../include/Model.h
-Asteroid.h
-../include/Asteroid.h
+../include/Nave.h
 Tiro.h
 ../include/Tiro.h
 vector
 -
 
-../include/Model.h
+../include/NaveController.h
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+Nave.h
+../include/Nave.h
+Asteroid.h
+../include/Asteroid.h
 Tiro.h
 ../include/Tiro.h
 vector
@@ -55,30 +55,36 @@ SDL2/SDL.h
 -
 SDL2/SDL_image.h
 -
-Model.h
-../include/Model.h
+SDL2/SDL_ttf.h
+-
+Nave.h
+../include/Nave.h
 Asteroid.h
 ../include/Asteroid.h
 Tiro.h
 ../include/Tiro.h
 vector
 -
+iostream
+-
 
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/main.cpp
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/main.cpp
 View.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/View.h
-Controller.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Controller.h
-Model.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Model.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/View.h
+NaveController.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/NaveController.h
+Nave.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/Nave.h
 Asteroid.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Asteroid.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/Asteroid.h
 AsteroidController.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/AsteroidController.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/AsteroidController.h
 TiroController.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/TiroController.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/TiroController.h
 Tiro.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Tiro.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/Tiro.h
+SDL2/SDL_ttf.h
+-
 vector
 -
 

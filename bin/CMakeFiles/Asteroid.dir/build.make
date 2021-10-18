@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872"
+CMAKE_SOURCE_DIR = /home/ariadne/Documentos/ea872/Asteroids-EA872
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin"
+CMAKE_BINARY_DIR = /home/ariadne/Documentos/ea872/Asteroids-EA872/bin
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Asteroid.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/Asteroid.dir/flags.make
 
 CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o: CMakeFiles/Asteroid.dir/flags.make
 CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o: ../src/Asteroid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o -c "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Asteroid.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o -c /home/ariadne/Documentos/ea872/Asteroids-EA872/src/Asteroid.cpp
 
 CMakeFiles/Asteroid.dir/src/Asteroid.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Asteroid.dir/src/Asteroid.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Asteroid.cpp" > CMakeFiles/Asteroid.dir/src/Asteroid.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ariadne/Documentos/ea872/Asteroids-EA872/src/Asteroid.cpp > CMakeFiles/Asteroid.dir/src/Asteroid.cpp.i
 
 CMakeFiles/Asteroid.dir/src/Asteroid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Asteroid.dir/src/Asteroid.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Asteroid.cpp" -o CMakeFiles/Asteroid.dir/src/Asteroid.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ariadne/Documentos/ea872/Asteroids-EA872/src/Asteroid.cpp -o CMakeFiles/Asteroid.dir/src/Asteroid.cpp.s
 
 # Object files for target Asteroid
 Asteroid_OBJECTS = \
@@ -80,7 +80,7 @@ Asteroid_EXTERNAL_OBJECTS =
 libAsteroid.a: CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o
 libAsteroid.a: CMakeFiles/Asteroid.dir/build.make
 libAsteroid.a: CMakeFiles/Asteroid.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libAsteroid.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libAsteroid.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/Asteroid.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Asteroid.dir/link.txt --verbose=$(VERBOSE)
 
@@ -94,6 +94,6 @@ CMakeFiles/Asteroid.dir/clean:
 .PHONY : CMakeFiles/Asteroid.dir/clean
 
 CMakeFiles/Asteroid.dir/depend:
-	cd "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872" "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872" "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin" "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin" "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Asteroid.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/ariadne/Documentos/ea872/Asteroids-EA872/bin && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ariadne/Documentos/ea872/Asteroids-EA872 /home/ariadne/Documentos/ea872/Asteroids-EA872 /home/ariadne/Documentos/ea872/Asteroids-EA872/bin /home/ariadne/Documentos/ea872/Asteroids-EA872/bin /home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/Asteroid.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Asteroid.dir/depend
 

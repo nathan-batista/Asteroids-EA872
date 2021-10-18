@@ -1,28 +1,28 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "Model.h"
+#include "Nave.h"
 #include "Asteroid.h"
 #include "Tiro.h"
 #include <vector>
 using namespace std;
 
 
-#ifndef _Controller_
-#define _Controller_
-class Controller{
+#ifndef _NaveController_
+#define _NaveController_
+class NaveController{
     private:
         float a, f;
         bool rodando;
         // Variaveis para verificar eventos
         SDL_Event evento; // eventos discretos
         //const Uint8* state;  // estado do teclado
-        Model &model;
+        Nave &nave;
 
         vector<Asteroid> &asteroid;
         const Uint8* state;
 
     public:
-        Controller(Model &model, vector<Asteroid> &asteroid);
+        NaveController(Nave &nave, vector<Asteroid> &asteroid);
         void polling();
         bool get_rodando();
         void calcular_velocidade();

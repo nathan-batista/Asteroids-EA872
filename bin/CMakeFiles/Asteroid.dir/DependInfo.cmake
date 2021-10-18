@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Asteroid.cpp" "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o"
+  "/home/ariadne/Documentos/ea872/Asteroids-EA872/src/Asteroid.cpp" "/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

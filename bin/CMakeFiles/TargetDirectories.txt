@@ -1,10 +1,10 @@
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/rebuild_cache.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/TiroController.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Tiro.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/AsteroidController.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Asteroid.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/View.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/edit_cache.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Controller.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Model.dir
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/CMakeFiles/Asteroids.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/rebuild_cache.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/edit_cache.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/TiroController.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/Tiro.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/AsteroidController.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/Asteroid.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/NaveController.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/View.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/Nave.dir
+/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles/Asteroids.dir

@@ -3,8 +3,8 @@
 
 CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/Asteroid.h
 CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/AsteroidController.h
-CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/Controller.h
-CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/Model.h
+CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/Nave.h
+CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/NaveController.h
 CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/Tiro.h
 CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/TiroController.h
 CMakeFiles/Asteroids.dir/src/main.cpp.o: ../include/View.h

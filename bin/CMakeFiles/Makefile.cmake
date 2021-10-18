@@ -120,8 +120,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Tiro.dir/DependInfo.cmake"
   "CMakeFiles/AsteroidController.dir/DependInfo.cmake"
   "CMakeFiles/Asteroid.dir/DependInfo.cmake"
+  "CMakeFiles/NaveController.dir/DependInfo.cmake"
   "CMakeFiles/View.dir/DependInfo.cmake"
-  "CMakeFiles/Controller.dir/DependInfo.cmake"
-  "CMakeFiles/Model.dir/DependInfo.cmake"
+  "CMakeFiles/Nave.dir/DependInfo.cmake"
   "CMakeFiles/Asteroids.dir/DependInfo.cmake"
   )

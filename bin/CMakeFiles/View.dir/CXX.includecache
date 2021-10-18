@@ -8,7 +8,7 @@
 
 ../include/Asteroid.h
 
-../include/Model.h
+../include/Nave.h
 Tiro.h
 ../include/Tiro.h
 vector
@@ -21,24 +21,32 @@ SDL2/SDL.h
 -
 SDL2/SDL_image.h
 -
-Model.h
-../include/Model.h
+SDL2/SDL_ttf.h
+-
+Nave.h
+../include/Nave.h
 Asteroid.h
 ../include/Asteroid.h
 Tiro.h
 ../include/Tiro.h
 vector
 -
+iostream
+-
 
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/View.cpp
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/View.cpp
 View.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/View.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/View.h
 SDL2/SDL.h
 -
 SDL2/SDL_image.h
 -
+SDL2/SDL_ttf.h
+-
 iostream
 -
 vector
+-
+string
 -
 

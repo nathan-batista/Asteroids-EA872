@@ -1,16 +1,18 @@
 #include "View.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 600;
 
-View::View(Model &model, vector<Asteroid> &asteroid) : model(model), asteroid(asteroid) {
+View::View(Nave &nave, vector<Asteroid> &asteroid) : nave(nave), asteroid(asteroid) {
 
-    // Inicializando o submodelema de video do SDL
+    // Inicializando o subnaveema de video do SDL
     if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
         cout << SDL_GetError();
     }
@@ -38,36 +40,59 @@ View::View(Model &model, vector<Asteroid> &asteroid) : model(model), asteroid(as
         SDL_Quit();
     }
 
+    //Carregando fonte
+    
+int TTF_Init();
+
+if(TTF_Init()==-1) {
+    cerr << "Failed to initialize ttf library!\n";
+    cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
+}
+
+    carregarFonte(nave.get_score());
+
     // Carregando texturas
 
     // personagem
     this->texture = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");  
-    this->target.x = model.get_x_atual();
-    this->target.y = model.get_y_atual();
+    this->target.x = nave.get_x_atual();
+    this->target.y = nave.get_y_atual();
     // fundo
     this->texture2 = IMG_LoadTexture(this->renderer, "../assets/space1.jpeg");      
     //Asteroid
     this->texture3 = IMG_LoadTexture(this->renderer,"../assets/meteor.png" );
-
+    //Tiro
     this->texture4 = IMG_LoadTexture(this->renderer,"../assets/tiro.png" );
     this->target_tiro.x = 50;
     this->target_tiro.y = 50;
     
 
     SDL_QueryTexture(this->texture, nullptr, nullptr, &(this->target.w), &(this->target.h));
+
+    if(TTF_Init() == -1){
+       // printf("TFF Initialization Error: ", TTF_GetError());
+    }
 }
 
 void View::renderizar(){
     // Desenhar a cena
-    target.x = model.get_x_atual();
-    target.y = model.get_y_atual();
-    target.h = model.height;
-    target.w = model.width;
+    target.x = nave.get_x_atual();
+    target.y = nave.get_y_atual();
+    target.h = nave.height;
+    target.w = nave.width;
+
+    //Desenhar o score
+    carregarFonte(nave.get_score());
+    target_score.x = 800;
+    target_score.y = 560;
+    target_score.h = this->t_height;
+    target_score.w = this->t_width;
 
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
- 
-    vector<Tiro> tiros = model.getTiro();
+    SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
+
+    vector<Tiro> tiros = nave.getTiro();
     for(int i = 0; i < tiros.size(); i++) {
         target_tiro.x = tiros[i].get_x_atual();
         target_tiro.y = tiros[i].get_y_atual();    
@@ -84,7 +109,7 @@ void View::renderizar(){
         SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));    
     }
 
-    if(!model.destruir){
+    if(!nave.destruir){
         SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
     }
 
@@ -96,9 +121,53 @@ void View::renderizar(){
 
 void View::destruir(){
     SDL_DestroyTexture(this->texture);
+    SDL_DestroyTexture(this->texture2);
+    SDL_DestroyTexture(this->texture3);
+    SDL_DestroyTexture(this->texture4);
+    SDL_DestroyTexture(this->score_texture);
     SDL_DestroyRenderer(this->renderer);
     SDL_DestroyWindow(this->window);
     SDL_Quit();
+    TTF_Quit();
 }
 
+void View::carregarFonte(int score){
+    this->fontSize = 24;
+    this->text_color = {255,255, 255};
+    this->t_height = this->t_width = 0;
+    this->fontpath = "../assets/PixelGameFont.ttf";
+    this->text = "SCORE: " + to_string(score);
+    this->font = TTF_OpenFont(fontpath.c_str(), fontSize);
+    this->score_texture = NULL; // our font-texture
 
+    // check to see that the font was loaded correctly
+    if (font == NULL) {
+        cerr << "Failed the load the font!\n";
+        cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
+    }
+    else {
+        // now create a surface from the font
+        this->text_surface = TTF_RenderText_Solid(font, text.c_str(), text_color);
+
+        // render the text surface
+        if (text_surface == NULL) {
+            cerr << "Failed to render text surface!\n";
+            cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
+        }
+        else {
+            // create a texture from the surface
+            score_texture = SDL_CreateTextureFromSurface(this->renderer, text_surface);
+
+            if (score_texture == NULL) {
+                cerr << "Unable to create texture from rendered text!\n";
+            }
+            else {
+                t_width = text_surface->w; // assign the width of the texture
+                t_height = text_surface->h; // assign the height of the texture
+
+                // clean up after ourselves (destroy the surface)
+                SDL_FreeSurface(text_surface);
+            }
+        }
+    }
+}

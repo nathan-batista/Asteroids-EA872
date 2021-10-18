@@ -8,13 +8,19 @@
 
 ../include/Asteroid.h
 
-../include/Controller.h
+../include/Nave.h
+Tiro.h
+../include/Tiro.h
+vector
+-
+
+../include/NaveController.h
 SDL2/SDL.h
 -
 SDL2/SDL_image.h
 -
-Model.h
-../include/Model.h
+Nave.h
+../include/Nave.h
 Asteroid.h
 ../include/Asteroid.h
 Tiro.h
@@ -22,23 +28,19 @@ Tiro.h
 vector
 -
 
-../include/Model.h
-Tiro.h
-../include/Tiro.h
-vector
--
-
 ../include/Tiro.h
 
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Controller.cpp
-Controller.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Controller.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/NaveController.cpp
+NaveController.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/NaveController.h
 SDL2/SDL.h
 -
 SDL2/SDL_image.h
 -
+SDL2/SDL_ttf.h
+-
 Tiro.h
-/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Tiro.h
+/home/ariadne/Documentos/ea872/Asteroids-EA872/src/Tiro.h
 iostream
 -
 vector
