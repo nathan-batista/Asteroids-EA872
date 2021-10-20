@@ -274,13 +274,13 @@ CMakeFiles/Nave.dir/clean:
 # Target rules for target CMakeFiles/Asteroids.dir
 
 # All Build rule for target.
-CMakeFiles/Asteroids.dir/all: CMakeFiles/AsteroidController.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/Asteroid.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/View.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/Nave.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/Tiro.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/TiroController.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/Nave.dir/all
 CMakeFiles/Asteroids.dir/all: CMakeFiles/NaveController.dir/all
-CMakeFiles/Asteroids.dir/all: CMakeFiles/View.dir/all
+CMakeFiles/Asteroids.dir/all: CMakeFiles/AsteroidController.dir/all
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/depend
 	$(MAKE) -f CMakeFiles/Asteroids.dir/build.make CMakeFiles/Asteroids.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/CMakeFiles --progress-num=5,6 "Built target Asteroids"

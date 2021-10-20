@@ -25,7 +25,9 @@ class View{
         SDL_Texture *texture3;
         SDL_Texture *texture4;
         SDL_Texture *score_texture;
+        SDL_Texture *gameover_texture;
         TTF_Font *font;
+        TTF_Font *gameover;
         int fontSize;
         SDL_Color text_color;
         string fontpath;
@@ -37,7 +39,9 @@ class View{
         View(Nave &nave, vector<Asteroid> &asteroid);
         void renderizar();
         void destruir();
-        void carregarFonte(int score);
+        void carregarFonte(string txt);
+        void carregarGameOver(string txt);
+
 };
 
 #endif

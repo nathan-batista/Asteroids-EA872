@@ -44,12 +44,18 @@ View::View(Nave &nave, vector<Asteroid> &asteroid) : nave(nave), asteroid(astero
     
 int TTF_Init();
 
-if(TTF_Init()==-1) {
-    cerr << "Failed to initialize ttf library!\n";
-    cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
-}
+    if(TTF_Init()==-1) {
+        cerr << "Failed to initialize ttf library!\n";
+        cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
+    }
 
-    carregarFonte(nave.get_score());
+    this->fontSize = 24;
+    this->fontpath = "../assets/PixelGameFont.ttf";
+    this->font = TTF_OpenFont(fontpath.c_str(), fontSize);
+    this->gameover = TTF_OpenFont(fontpath.c_str(), 80);
+
+    carregarFonte("SCORE: " + to_string(0));
+
 
     // Carregando texturas
 
@@ -68,13 +74,12 @@ if(TTF_Init()==-1) {
     
 
     SDL_QueryTexture(this->texture, nullptr, nullptr, &(this->target.w), &(this->target.h));
-
-    if(TTF_Init() == -1){
-       // printf("TFF Initialization Error: ", TTF_GetError());
-    }
 }
 
 void View::renderizar(){
+
+    if (!nave.get_colidiu()){
+
     // Desenhar a cena
     target.x = nave.get_x_atual();
     target.y = nave.get_y_atual();
@@ -82,7 +87,7 @@ void View::renderizar(){
     target.w = nave.width;
 
     //Desenhar o score
-    carregarFonte(nave.get_score());
+    carregarFonte("SCORE: " + to_string(nave.get_score()) );
     target_score.x = 800;
     target_score.y = 560;
     target_score.h = this->t_height;
@@ -113,9 +118,22 @@ void View::renderizar(){
         SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
     }
 
+    SDL_Delay(1);
+
+    }else{
+        carregarGameOver("GAME OVER");
+        target_score.x = 280;
+        target_score.y = 280;
+        target_score.h = this->t_height;
+        target_score.w = this->t_width;
+
+        SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
+
+        SDL_Delay(0);
+    }
+
     SDL_RenderPresent(this->renderer);
     // Delay para diminuir o framerate
-    SDL_Delay(1);
     
 }
 
@@ -131,32 +149,29 @@ void View::destruir(){
     TTF_Quit();
 }
 
-void View::carregarFonte(int score){
-    this->fontSize = 24;
+void View::carregarFonte( string txt){
     this->text_color = {255,255, 255};
     this->t_height = this->t_width = 0;
-    this->fontpath = "../assets/PixelGameFont.ttf";
-    this->text = "SCORE: " + to_string(score);
-    this->font = TTF_OpenFont(fontpath.c_str(), fontSize);
+    this->text = txt;
     this->score_texture = NULL; // our font-texture
 
     // check to see that the font was loaded correctly
-    if (font == NULL) {
+    if (this->font == NULL) {
         cerr << "Failed the load the font!\n";
         cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
     }
     else {
         // now create a surface from the font
-        this->text_surface = TTF_RenderText_Solid(font, text.c_str(), text_color);
+        this->text_surface = TTF_RenderText_Solid(this->font, text.c_str(), text_color);
 
         // render the text surface
-        if (text_surface == NULL) {
+        if (this->text_surface == NULL) {
             cerr << "Failed to render text surface!\n";
             cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
         }
         else {
             // create a texture from the surface
-            score_texture = SDL_CreateTextureFromSurface(this->renderer, text_surface);
+            score_texture = SDL_CreateTextureFromSurface(this->renderer, this->text_surface);
 
             if (score_texture == NULL) {
                 cerr << "Unable to create texture from rendered text!\n";
@@ -171,3 +186,42 @@ void View::carregarFonte(int score){
         }
     }
 }
+
+void View::carregarGameOver( string txt){
+    this->text_color = {255,255, 255};
+    this->t_height = this->t_width = 0;
+    this->text = txt;
+    this->score_texture = NULL; // our font-texture
+
+    // check to see that the font was loaded correctly
+    if (this->gameover == NULL) {
+        cerr << "Failed the load the font!\n";
+        cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
+    }
+    else {
+        // now create a surface from the font
+        this->text_surface = TTF_RenderText_Solid(this->gameover, text.c_str(), text_color);
+
+        // render the text surface
+        if (this->text_surface == NULL) {
+            cerr << "Failed to render text surface!\n";
+            cerr << "SDL_TTF Error: " << TTF_GetError() << "\n";
+        }
+        else {
+            // create a texture from the surface
+            score_texture = SDL_CreateTextureFromSurface(this->renderer, this->text_surface);
+
+            if (score_texture == NULL) {
+                cerr << "Unable to create texture from rendered text!\n";
+            }
+            else {
+                t_width = text_surface->w; // assign the width of the texture
+                t_height = text_surface->h; // assign the height of the texture
+
+                // clean up after ourselves (destroy the surface)
+                SDL_FreeSurface(text_surface);
+            }
+        }
+    }
+}
+

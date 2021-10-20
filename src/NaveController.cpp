@@ -74,7 +74,8 @@ void NaveController::update(){
         nave.get_y_atual() < asteroid[i].get_y_atual() + asteroid[i].height &&
         nave.get_y_atual() + nave.height > asteroid[i].get_y_atual() && !asteroid[i].destruir) {
        
-            this->rodando = false;
+            //this->rodando = false;
+            nave.gameover();
         }
 
         if((asteroid[i].get_x_atual() > 1200 || asteroid[i].get_x_atual() < -200) || (asteroid[i].get_y_atual() < -800)) {
