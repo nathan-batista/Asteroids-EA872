@@ -7,7 +7,6 @@ Asteroid::Asteroid(float x, float y, float vx, float vy, float dt){
       this->vx_atual= vx;
       this->vy_atual= vy;
       this->dt = dt;
-      this->destruir = false;
       this->width = 65;
       this->height = 65;
 };

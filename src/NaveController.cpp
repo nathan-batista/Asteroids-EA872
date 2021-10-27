@@ -66,13 +66,14 @@ void NaveController::calcular_posicao(){
 
 void NaveController::update(){
     vector<int> ast1, tir1;
-    vector <Tiro> tiros; 
+    vector<Tiro> &tiro = nave.getTiro();
+    int i = 0;
 
-    for(int i = 0; i < asteroid.size(); i++) {
+    for(i = 0; i < asteroid.size(); i++) {
         if (nave.get_x_atual() < asteroid[i].get_x_atual() + asteroid[i].width &&
         nave.get_x_atual() + nave.width > asteroid[i].get_x_atual() &&
         nave.get_y_atual() < asteroid[i].get_y_atual() + asteroid[i].height &&
-        nave.get_y_atual() + nave.height > asteroid[i].get_y_atual() && !asteroid[i].destruir) {
+        nave.get_y_atual() + nave.height > asteroid[i].get_y_atual()) {
        
             this->rodando = false;
         }
@@ -82,64 +83,57 @@ void NaveController::update(){
         }
     }
     if(!ast1.empty()){
-        for(int i = 0; i<ast1.size();i++){
+        for(i = ast1.size()-1; i>-1;i--){
             asteroid.erase(asteroid.begin() + ast1[i]);
-            for(int k = i+1;k<ast1.size();k++){
-                ast1[k] -= 1;
-            }
+            ast1.pop_back();
         }
     }
     
-
-    ast1.clear();
-    
-    tiros = nave.getTiro();
-    for(int i = 0; i < tiros.size(); i ++) {
-        if(tiros[i].get_y_atual() < -200) {
+    for(i = 0; i < tiro.size(); i ++) {
+        if(tiro[i].get_y_atual() < -200) {
             tir1.push_back(i);
         }
     }
-    
-    for(int i = 0; i<tir1.size();i++){
-        tiros.erase(tiros.begin() + tir1[i]);
-        for(int k = i+1; k<tir1.size(); k++){
-            tir1[k] -= 1;
+
+    if(!tir1.empty()){
+        for(i = tir1.size()-1; i>-1;i--){
+            tiro.erase(tiro.begin() + tir1[i]);
+            tir1.pop_back();
         }
     }
 
-    tir1.clear();
 
-    
-    for(int i = 0; i < tiros.size(); i++) {
-        for(int j = 0; j < asteroid.size(); j ++) {
-  
-            if (tiros[i].get_x_atual() < asteroid[j].get_x_atual() + asteroid[j].width &&
-            tiros[i].get_x_atual() + tiros[i].width > asteroid[j].get_x_atual() &&
-            tiros[i].get_y_atual() < asteroid[j].get_y_atual() + asteroid[j].height &&
-            tiros[i].get_y_atual() + tiros[i].height > asteroid[j].get_y_atual()&& !asteroid[j].destruir) {
-                 
+    int j = 0;
+    for(i = 0; i < tiro.size(); i++) {
+        for(j = 0; j < asteroid.size(); j ++) {
+            if (tiro[i].get_x_atual() < asteroid[j].get_x_atual() + asteroid[j].width &&
+            tiro[i].get_x_atual() + tiro[i].width > asteroid[j].get_x_atual() &&
+            tiro[i].get_y_atual() < asteroid[j].get_y_atual() + asteroid[j].height &&
+            tiro[i].get_y_atual() + tiro[i].height > asteroid[j].get_y_atual()) {
                 ast1.push_back(j);
-                tir1.push_back(i);
+                if(find(tir1.begin(),tir1.end(),i) == tir1.end()){
+                    tir1.push_back(i);
+                }
                 nave.update_score(30);
-
             }   
         }
-        for(int k=0;k<ast1.size();k++){
-            asteroid.erase(asteroid.begin() + ast1[i]);
-            for(int u = k+1;u<ast1.size();u++){
-                ast1[u] -= 1;
+        int k = 0;
+        if(!ast1.empty()){
+            for(k=ast1.size()-1;k>-1;k--){
+                asteroid.erase(asteroid.begin() + ast1[k]);
+                ast1.pop_back();
             }
         }
-        ast1.clear();
     }
-
-    for(int i = 0; i < tir1.size(); i++) {
-        tiros.erase(tiros.begin() + tir1[i]);
-        for(int u = i+1;u<tir1.size();u++){
-                tir1[u] -= 1;
+    for(i=0; i<tir1.size();i++){
+        cout << tir1[i] << endl;
+    }
+    if(!tir1.empty()){
+        for(i = tir1.size()-1; i > -1; i--) {
+            tiro.erase(tiro.begin() + tir1[i]);
+            tir1.pop_back();
         }
     }
-
 }
 
 void NaveController::set_rodando(bool valor){

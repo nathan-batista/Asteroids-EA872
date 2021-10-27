@@ -93,14 +93,16 @@ void View::renderizar(){
     SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
 
     vector<Tiro> tiros = nave.getTiro();
-    for(int i = 0; i < tiros.size(); i++) {
-        target_tiro.x = tiros[i].get_x_atual();
-        target_tiro.y = tiros[i].get_y_atual();    
-        target_tiro.w = tiros[i].width;
-        target_tiro.h = tiros[i].height;
-        SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
+    if(!tiros.empty()){
+        for(int i = 0; i < tiros.size(); i++) {
+            target_tiro.x = tiros[i].get_x_atual();
+            target_tiro.y = tiros[i].get_y_atual();    
+            target_tiro.w = tiros[i].width;
+            target_tiro.h = tiros[i].height;
+            SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
+        }
     }
-
+    
     for(int i = 0; i < asteroid.size(); i++) {
         target_ast.x = asteroid[i].get_x_atual();
         target_ast.y = asteroid[i].get_y_atual();

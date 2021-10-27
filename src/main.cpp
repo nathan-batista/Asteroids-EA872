@@ -7,13 +7,17 @@
 #include "Tiro.h"
 #include <SDL2/SDL_ttf.h>
 #include <vector>
+#include "json.hpp"
+#include <fstream>
 
 using namespace std;
+using nlohmann::json;
 
 int main() { 
   //Tiro tiro = Tiro(-10,-10,0,0,0);
   vector<Tiro> tiros;
   vector<Asteroid> asteroids;
+  json j;
 
   Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros);
   Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
@@ -32,6 +36,15 @@ int main() {
     
   }
 
+  j["asteroides"] = asteroids;
+  j["tiros"] = tiros;
+  j["nave"] = nave;
+  ofstream f;
+  f.open("teste.json");
+  f << j;
+  f.close();
+
+ 
   view.destruir();
   
   return 0;

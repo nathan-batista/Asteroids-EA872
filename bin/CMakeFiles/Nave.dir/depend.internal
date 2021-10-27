@@ -4,4 +4,5 @@
 CMakeFiles/Nave.dir/src/Nave.cpp.o
  ../include/Nave.h
  ../include/Tiro.h
- /home/ariadne/Documentos/ea872/Asteroids-EA872/src/Nave.cpp
+ ../src/json.hpp
+ /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Nave.cpp

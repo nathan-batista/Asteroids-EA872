@@ -3,5 +3,6 @@
 
 CMakeFiles/Nave.dir/src/Nave.cpp.o: ../include/Nave.h
 CMakeFiles/Nave.dir/src/Nave.cpp.o: ../include/Tiro.h
+CMakeFiles/Nave.dir/src/Nave.cpp.o: ../src/json.hpp
 CMakeFiles/Nave.dir/src/Nave.cpp.o: ../src/Nave.cpp
 

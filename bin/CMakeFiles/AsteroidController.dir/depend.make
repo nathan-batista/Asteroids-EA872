@@ -3,5 +3,6 @@
 
 CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.o: ../include/Asteroid.h
 CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.o: ../include/AsteroidController.h
+CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.o: ../src/json.hpp
 CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.o: ../src/AsteroidController.cpp
 

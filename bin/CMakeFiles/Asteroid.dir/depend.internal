@@ -3,4 +3,5 @@
 
 CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o
  ../include/Asteroid.h
- /home/ariadne/Documentos/ea872/Asteroids-EA872/src/Asteroid.cpp
+ ../src/json.hpp
+ /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/Asteroid.cpp

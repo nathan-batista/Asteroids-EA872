@@ -3,5 +3,6 @@
 
 CMakeFiles/TiroController.dir/src/TiroController.cpp.o: ../include/Tiro.h
 CMakeFiles/TiroController.dir/src/TiroController.cpp.o: ../include/TiroController.h
+CMakeFiles/TiroController.dir/src/TiroController.cpp.o: ../src/json.hpp
 CMakeFiles/TiroController.dir/src/TiroController.cpp.o: ../src/TiroController.cpp
 

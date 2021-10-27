@@ -6,4 +6,5 @@ CMakeFiles/NaveController.dir/src/NaveController.cpp.o
  ../include/Nave.h
  ../include/NaveController.h
  ../include/Tiro.h
- /home/ariadne/Documentos/ea872/Asteroids-EA872/src/NaveController.cpp
+ ../src/json.hpp
+ /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/src/NaveController.cpp

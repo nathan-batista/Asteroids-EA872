@@ -63,6 +63,10 @@ void Nave::update_score(int i){
     this->score +=  30;
 }
 
+void Nave::apagar_tiro(int i){
+    (this->tiro).erase(this->tiro.begin() + i);
+}
+
 vector<Tiro>& Nave::getTiro(){
     return (this->tiro);
 }

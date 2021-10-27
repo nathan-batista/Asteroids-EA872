@@ -1,4 +1,4 @@
-# Install script for directory: /home/ariadne/Documentos/ea872/Asteroids-EA872
+# Install script for directory: /home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ariadne/Documentos/ea872/Asteroids-EA872/bin/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nathan/Área de Trabalho/ProjetoFinal872/Asteroids-EA872/bin/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

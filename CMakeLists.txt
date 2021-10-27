@@ -30,6 +30,7 @@ target_link_libraries(Asteroids TiroController)
 # Garantir que usaremos C++11 (ou superior, se preciso)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_FLAGS "-g")
 
 # Bibliotecas linkadas externamente
 target_link_libraries(Asteroids SDL2)

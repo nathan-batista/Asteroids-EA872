@@ -1,3 +1,4 @@
+#include "../src/json.hpp"
 #pragma once
 
 class Tiro{
@@ -9,6 +10,7 @@ class Tiro{
         float vy_atual;
     
     public:
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE(Tiro,dt,x_atual,y_atual,vx_atual,vy_atual);
         Tiro(float x0, float y0, float vx, float vy, float dt);
         bool flag;
         bool destruir;

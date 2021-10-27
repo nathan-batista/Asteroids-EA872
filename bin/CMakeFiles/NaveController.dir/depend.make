@@ -5,5 +5,6 @@ CMakeFiles/NaveController.dir/src/NaveController.cpp.o: ../include/Asteroid.h
 CMakeFiles/NaveController.dir/src/NaveController.cpp.o: ../include/Nave.h
 CMakeFiles/NaveController.dir/src/NaveController.cpp.o: ../include/NaveController.h
 CMakeFiles/NaveController.dir/src/NaveController.cpp.o: ../include/Tiro.h
+CMakeFiles/NaveController.dir/src/NaveController.cpp.o: ../src/json.hpp
 CMakeFiles/NaveController.dir/src/NaveController.cpp.o: ../src/NaveController.cpp
 
