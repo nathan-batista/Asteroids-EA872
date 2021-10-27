@@ -18,6 +18,7 @@ class Nave{
         float x_atual;
         float y_atual;
         float v_atual;
+        bool colidiu;
         int score;
         char *imagem_principal;
         char *imagem_fundo;
@@ -35,6 +36,8 @@ class Nave{
         float get_x_atual();
         float get_y_atual();
         int get_score();
+        bool get_colidiu();
+        void gameover();
         void set_x_atual(float new_x);
         void set_y_atual(float new_y);
         float get_v_atual();

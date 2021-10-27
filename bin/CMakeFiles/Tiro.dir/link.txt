@@ -1,2 +1,0 @@
-/usr/bin/ar qc libTiro.a  CMakeFiles/Tiro.dir/src/Tiro.cpp.o
-/usr/bin/ranlib libTiro.a

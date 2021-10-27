@@ -19,6 +19,7 @@ Nave::Nave(float m, float k, float b, float x0, float y0, float v0, float dt, ve
       this->width = 65;
       this->height = 65;
       this->score = 0;
+      this->colidiu = false;
 }
 float Nave::get_m(){
     return this->m;
@@ -63,8 +64,11 @@ void Nave::update_score(int i){
     this->score +=  30;
 }
 
-void Nave::apagar_tiro(int i){
-    (this->tiro).erase(this->tiro.begin() + i);
+bool Nave::get_colidiu(){
+    return this->colidiu;
+}
+void Nave::gameover(){
+    this->colidiu = true;
 }
 
 vector<Tiro>& Nave::getTiro(){
