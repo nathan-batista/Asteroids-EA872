@@ -75,7 +75,6 @@ void NaveController::update(){
         nave.get_y_atual() < asteroid[i].get_y_atual() + asteroid[i].height &&
         nave.get_y_atual() + nave.height > asteroid[i].get_y_atual()) {
        
-            //this->rodando = false;
             nave.gameover();
         }
 
@@ -103,7 +102,6 @@ void NaveController::update(){
         }
     }
 
-
     int j = 0;
     for(i = 0; i < tiro.size(); i++) {
         for(j = 0; j < asteroid.size(); j ++) {
@@ -125,9 +123,6 @@ void NaveController::update(){
                 ast1.pop_back();
             }
         }
-    }
-    for(i=0; i<tir1.size();i++){
-        cout << tir1[i] << endl;
     }
     if(!tir1.empty()){
         for(i = tir1.size()-1; i > -1; i--) {
