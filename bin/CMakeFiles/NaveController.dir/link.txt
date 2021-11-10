@@ -1,2 +1,0 @@
-/usr/bin/ar qc libNaveController.a  CMakeFiles/NaveController.dir/src/NaveController.cpp.o
-/usr/bin/ranlib libNaveController.a

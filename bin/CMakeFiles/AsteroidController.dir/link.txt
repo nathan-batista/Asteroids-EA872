@@ -1,2 +1,0 @@
-/usr/bin/ar qc libAsteroidController.a  CMakeFiles/AsteroidController.dir/src/AsteroidController.cpp.o
-/usr/bin/ranlib libAsteroidController.a

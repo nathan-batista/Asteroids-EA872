@@ -1,2 +1,0 @@
-/usr/bin/ar qc libAsteroid.a  CMakeFiles/Asteroid.dir/src/Asteroid.cpp.o
-/usr/bin/ranlib libAsteroid.a
