@@ -86,13 +86,6 @@ void View::renderizar(){
     target.h = nave.height;
     target.w = nave.width;
 
-    //Desenhar o score
-    carregarFonte("SCORE: " + to_string(nave.get_score()) );
-    target_score.x = 800;
-    target_score.y = 560;
-    target_score.h = this->t_height;
-    target_score.w = this->t_width;
-
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
     SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
@@ -115,6 +108,13 @@ void View::renderizar(){
         target_ast.w = asteroid[i].width;
         SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));    
     }
+    
+    //Desenhar o score
+    carregarFonte("SCORE: " + to_string(nave.get_score()) );
+    target_score.x = 800;
+    target_score.y = 560;
+    target_score.h = this->t_height;
+    target_score.w = this->t_width;
 
     if(!nave.destruir){
         SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));

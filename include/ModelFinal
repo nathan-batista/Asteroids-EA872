@@ -1,0 +1,14 @@
+#include "Tiro.h"
+#include "Nave.h"
+#include "../src/json.hpp"
+using namespace std;
+#pragma once
+
+class ModelFinal{
+    private:
+        vector<Nave> &naves;
+    public:
+        ModelFinal(vector<Nave> n);
+        void adicionar_nave(Nave &n);
+        void remover_nave(Nave n);
+}

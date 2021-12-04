@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-Nave::Nave(float m, float k, float b, float x0, float y0, float v0, float dt, vector<Tiro> &tiro) : tiro(tiro){
+Nave::Nave(float m, float k, float b, float x0, float y0, float v0, float dt, vector<Tiro> &tiro,int identificador) : tiro(tiro){
       //setando variaveis iniciais
       this->m = m;
       this->k = k;
@@ -20,6 +20,7 @@ Nave::Nave(float m, float k, float b, float x0, float y0, float v0, float dt, ve
       this->height = 65;
       this->score = 0;
       this->colidiu = false;
+      this->id = identificador;
 }
 float Nave::get_m(){
     return this->m;

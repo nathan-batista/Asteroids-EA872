@@ -14,7 +14,10 @@ class Keyboard{
     public:
         Keyboard();
         bool verificaTecla(string tecla);
-        bool verificaSaida();
+        bool atualizaEvento();
+        bool eventoDeSaida();
+        bool eventoEspaco();
+        void atualizarEstadoTeclado();
 };
 
 
