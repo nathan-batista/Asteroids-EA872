@@ -1,0 +1,10 @@
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/rebuild_cache.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/edit_cache.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/TiroController.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/AsteroidController.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/Tiro.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/Asteroid.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/NaveController.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/View.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/Nave.dir
+/Users/ariadne_bigheti/Documents/EA872/Asteroids/Asteroids-EA872/bin/CMakeFiles/Asteroids.dir
