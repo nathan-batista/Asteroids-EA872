@@ -18,6 +18,6 @@ class ControllerGeral{
 
     public:
         ControllerGeral(ModelFinal &m,vector<Asteroid> &a);
-        void polling();
+        void polling(Keyboard &teclado);
         void update();
 }
