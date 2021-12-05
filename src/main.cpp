@@ -9,6 +9,7 @@
 #include <vector>
 #include "json.hpp"
 #include <fstream>
+#include <boost/asio.hpp>
 
 using namespace std;
 using nlohmann::json;
@@ -29,7 +30,7 @@ int main() {
   boost::asio::ip::address ip_remoto = boost::asio::ip::address::from_string("127.0.0.1");
 
   udp::endpoint remote_endpoint(ip_remoto, 9001);
-
+  
   Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros);
   Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
   View view = View(nave, asteroids);
@@ -46,8 +47,8 @@ int main() {
     j["asteroides"] = asteroids;
     j["tiros"] = tiros;
     j["nave"] = nave;
-    meu_socket.send_to(boost::asio::buffer(j), remote_endpoint);
-    my_socket.receive_from(boost::asio::buffer(v,10000), // Local do buffer
+    meu_socket.send_to(boost::asio::buffer(j.dump()), remote_endpoint);
+    meu_socket.receive_from(boost::asio::buffer(v,10000), // Local do buffer
                       remote_endpoint);
     view.renderizar();
     
