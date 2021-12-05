@@ -31,9 +31,9 @@ int main() {
 
   udp::endpoint remote_endpoint(ip_remoto, 9001);
   
-  Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros);
+  Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, 1);
   Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
-  View view = View(nave, asteroids);
+  //View view = View(nave, asteroids);
   AsteroidController asteroidcontroller = AsteroidController(asteroids);
   NaveController naveController = NaveController(nave, asteroids);
   TiroController tiroController = TiroController();
@@ -50,7 +50,7 @@ int main() {
     meu_socket.send_to(boost::asio::buffer(j.dump()), remote_endpoint);
     meu_socket.receive_from(boost::asio::buffer(v,10000), // Local do buffer
                       remote_endpoint);
-    view.renderizar();
+    //view.renderizar();
     
   }
 
@@ -61,7 +61,7 @@ int main() {
   f.close();
   */
  
-  view.destruir();
+  //view.destruir();
   
   return 0;
 }

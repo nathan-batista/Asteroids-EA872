@@ -3,6 +3,7 @@
 #include <SDL2/SDL_ttf.h>
 #include "Nave.h"
 #include "Asteroid.h"
+#include "ModelFinal.h"
 #include "Tiro.h"
 #include <vector>
 #include <iostream>
@@ -12,7 +13,7 @@ using namespace std;
 #define _View_
 class View{
     private:
-        Nave &nave;
+        ModelFinal &model;
         vector<Asteroid> &asteroid;
         SDL_Renderer* renderer;
         SDL_Window* window;
@@ -36,7 +37,7 @@ class View{
         int t_width;
         int t_height;
     public:
-        View(Nave &nave, vector<Asteroid> &asteroid);
+        View(ModelFinal &model, vector<Asteroid> &asteroid);
         void renderizar();
         void destruir();
         void carregarFonte(string txt);
