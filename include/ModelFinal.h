@@ -10,6 +10,7 @@ class ModelFinal{
         vector<Nave> &naves;
     public:
         ModelFinal(vector<Nave> &n);
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE(ModelFinal,naves);
         void adicionar_nave(Nave &n);
         void remover_nave(int id);
         vector<Nave>& getNaves();

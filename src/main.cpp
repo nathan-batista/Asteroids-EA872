@@ -10,57 +10,70 @@
 #include "json.hpp"
 #include <fstream>
 #include <boost/asio.hpp>
+#include <Keyboard.h>
+#include "ModelFinal.h"
 
 using namespace std;
 using nlohmann::json;
 using boost::asio::ip::udp;
 
+class Receiver{
+    public:
+      Receiver(){}
+      void receberJSON(json &j,ModelFinal &modelo,vector<Asteroid> &asteroidsJogo,udp::socket &socketClient,udp::endpoint &serverRemoto){
+        char dados[50000];
+        socketClient.receive_from(boost::asio::buffer(dados,50000),serverRemoto);
+        j = json::parse(dados);
+        j.at("naves").get_to(modelo);
+      }
+};
+
+
+
 int main() { 
-  //Tiro tiro = Tiro(-10,-10,0,0,0);
-  vector<Tiro> tiros;
-  vector<Asteroid> asteroids;
   json j;
-  char v[10000];
+  char v[3];
+  Keyboard tecladoJogador = Keyboard();
+  vector<Nave> navesJogo;
+  ModelFinal modelJogo = ModelFinal(navesJogo);
+  vector<Asteroid> asteroids;
+  char dadosJogo[50000];
 
   boost::asio::io_service io_service;
 
   udp::endpoint local_endpoint(udp::v4(), 0);
   udp::socket meu_socket(io_service, local_endpoint);
+
   // Encontrando IP remoto
   boost::asio::ip::address ip_remoto = boost::asio::ip::address::from_string("127.0.0.1");
 
   udp::endpoint remote_endpoint(ip_remoto, 9001);
-  
-  Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros);
-  Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
-  View view = View(nave, asteroids);
-  AsteroidController asteroidcontroller = AsteroidController(asteroids);
-  NaveController naveController = NaveController(nave, asteroids);
-  TiroController tiroController = TiroController();
 
-  // Laco principal do jogo
-  while(naveController.get_rodando()) {
-    naveController.polling();
-    asteroidcontroller.update();
-    tiroController.update(nave.getTiro());
-    naveController.update();
-    j["asteroides"] = asteroids;
-    j["tiros"] = tiros;
-    j["nave"] = nave;
-    meu_socket.send_to(boost::asio::buffer(j.dump()), remote_endpoint);
-    meu_socket.receive_from(boost::asio::buffer(v,10000), // Local do buffer
+  std::string msg("Ola");
+  meu_socket.send_to(boost::asio::buffer(msg), remote_endpoint);
+  meu_socket.receive_from(boost::asio::buffer(v,3), // Local do buffer
                       remote_endpoint);
-    view.renderizar();
-    
-  }
+  
+  std::cout << "Mensagem recebida do servidor, identificador = " + v[0] << std::endl;
+  int idJogador = v[0] - '0';
 
-  /*
-  ofstream f;
-  f.open("teste.json");
-  f << j;
-  f.close();
-  */
- 
+  meu_socket.receive_from(boost::asio::buffer(dadosJogo,50000), // Local do buffer
+                      remote_endpoint);
+  j = parse(dadosJogo);
+  j.at("naves").get_to(modelJogo); 
+  Receiver r;
+  // Laco principal do jogo
+  std::thread t1(&Receiver::receive,&r,&j,modelJogo,asteroids,&meu_socket,&remote_endpoint);
+  View view = View(modelJogo);
+  while(true) {
+    tecladoJogador.atualizarEstadoTeclado();
+    j["teclado"] = tecladoJogador;
+    meu_socket.send_to(boost::asio::buffer(j["teclado"].dump()),remote_endpoint);
+    view.renderizar();
+  }
+  t1.join();
+
+
   view.destruir();
   
   return 0;
