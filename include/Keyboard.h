@@ -22,6 +22,8 @@ class Keyboard{
         bool eventoDeSaida();
         void eventoEspaco();
         void atualizarEstadoTeclado();
+        int verTecla(int numTecla);
+        int verEspaco();
 };
 
 

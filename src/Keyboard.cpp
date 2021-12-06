@@ -61,4 +61,11 @@ void Keyboard::eventoEspaco(){
     }
 }
 
+int Keyboard::verTecla(int numTecla){
+    return this->teclas[numTecla];
+}
+
+int Keyboard::verEspaco(){
+    return this->atirou;
+}
 
