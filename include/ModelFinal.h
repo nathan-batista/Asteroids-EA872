@@ -8,9 +8,10 @@ using namespace std;
 class ModelFinal{
     private:
         vector<Nave> &naves;
+        
     public:
         ModelFinal(vector<Nave> &n);
         void adicionar_nave(Nave &n);
         void remover_nave(int id);
-        vector<Nave>& getNaves();
+        vector<Nave> &getNaves();
 };

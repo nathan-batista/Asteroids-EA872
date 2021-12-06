@@ -20,4 +20,4 @@ class ControllerGeral{
         ControllerGeral(ModelFinal &m,vector<Asteroid> &a);
         void polling(Keyboard &teclado);
         void update();
-}
+};

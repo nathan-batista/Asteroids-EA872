@@ -50,6 +50,10 @@ float Nave::get_v_atual(){
     return this->v_atual;
 }
 
+int Nave::get_id(){
+    return this->id;
+}
+
 int Nave::get_score(){
     return this->score;
 }

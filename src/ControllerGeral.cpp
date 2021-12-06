@@ -9,11 +9,13 @@
 
 using namespace std;
 
-ControllerGeral::ControllerGeral(ModelFinal &m,vector<Asteroid> &a):model(m),asteroid(a);
+ControllerGeral::ControllerGeral(ModelFinal &m,vector<Asteroid> &a):model(m),asteroid(a){
+
+};
 
 void ControllerGeral::polling(Keyboard &teclado){
     int i=0;
-    vector<Nave> &navesDoJogo = model.getNaves();
+    vector<Nave> navesDoJogo = model.getNaves();
     for(i = 0; navesDoJogo.size();i++){
         teclado.atualizarEstadoTeclado();
         if (teclado.verificaTecla("LEFT")) navesDoJogo[i].set_x_atual(navesDoJogo[i].get_x_atual()-10);
@@ -50,7 +52,7 @@ void ControllerGeral::polling(Keyboard &teclado){
 }
 
 void ControllerGeral::update(){
-    vector<Nave> &navesDoJogo = model.getNaves();
+    vector<Nave> navesDoJogo = model.getNaves();
     for(int i =0;i<navesDoJogo.size();i++){
         vector<int> ast1, tir1;
         vector<Tiro> &tiro = navesDoJogo[i].getTiro();
@@ -58,9 +60,9 @@ void ControllerGeral::update(){
 
         for(k = 0; k < asteroid.size(); k++) {
             if (navesDoJogo[i].get_x_atual() < asteroid[k].get_x_atual() + asteroid[k].width &&
-            navesDoJogo[i].get_x_atual() + nave.width > asteroid[k].get_x_atual() &&
+            navesDoJogo[i].get_x_atual() + navesDoJogo[i].width > asteroid[k].get_x_atual() &&
             navesDoJogo[i].get_y_atual() < asteroid[k].get_y_atual() + asteroid[k].height &&
-            navesDoJogo[i].get_y_atual() + nave.height > asteroid[k].get_y_atual()) {
+            navesDoJogo[i].get_y_atual() + navesDoJogo[i].height > asteroid[k].get_y_atual()) {
                 navesDoJogo[i].gameover();
             }
 
@@ -99,7 +101,7 @@ void ControllerGeral::update(){
                     if(find(tir1.begin(),tir1.end(),k) == tir1.end()){
                         tir1.push_back(k);
                     }
-                    nave.update_score(30);
+                    navesDoJogo[i].update_score(30);
                 }   
             }
             int h = 0;

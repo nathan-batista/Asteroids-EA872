@@ -36,6 +36,7 @@ class Nave{
         float get_dt();
         float get_x_atual();
         float get_y_atual();
+        int get_id();
         int get_score();
         bool get_colidiu();
         void gameover();

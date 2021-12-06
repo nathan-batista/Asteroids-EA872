@@ -30,7 +30,8 @@ int main() {
   boost::asio::ip::address ip_remoto = boost::asio::ip::address::from_string("127.0.0.1");
 
   udp::endpoint remote_endpoint(ip_remoto, 9001);
-  
+
+ /* 
   Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, 1);
   Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
   //View view = View(nave, asteroids);
@@ -53,7 +54,7 @@ int main() {
     //view.renderizar();
     
   }
-
+*/
   /*
   ofstream f;
   f.open("teste.json");

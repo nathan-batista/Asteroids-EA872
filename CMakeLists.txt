@@ -25,6 +25,10 @@ add_library(Tiro src/Tiro.cpp)
 target_link_libraries(Asteroids Tiro)
 add_library(TiroController src/TiroController.cpp)
 target_link_libraries(Asteroids TiroController)
+add_library(ModelFinal src/ModelFinal.cpp)
+target_link_libraries(Asteroids ModelFinal)
+add_library(ControllerGeral src/ControllerGeral.cpp)
+target_link_libraries(Asteroids ControllerGeral)
 
 
 # Garantir que usaremos C++11 (ou superior, se preciso)
@@ -36,3 +40,6 @@ set(CMAKE_CXX_FLAGS "-g")
 target_link_libraries(Asteroids SDL2)
 target_link_libraries(Asteroids SDL2_image)
 target_link_libraries(Asteroids SDL2_ttf)
+target_link_libraries(Asteroids boost)
+target_link_libraries(Asteroids asio)
+
