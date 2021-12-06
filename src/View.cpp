@@ -1,4 +1,5 @@
 #include "View.h"
+#include "ModelFinal.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
@@ -10,7 +11,7 @@ using namespace std;
 const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 600;
 
-View::View(Nave &nave, vector<Asteroid> &asteroid) : nave(nave), asteroid(asteroid) {
+View::View(ModelFinal &model, vector<Asteroid> &asteroid) : model(model), asteroid(asteroid) {
 
     // Inicializando o subnaveema de video do SDL
     if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
@@ -59,10 +60,13 @@ int TTF_Init();
 
     // Carregando texturas
 
-    // personagem
-    this->texture = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");  
-    this->target.x = nave.get_x_atual();
-    this->target.y = nave.get_y_atual();
+    // Naves
+    vector<Nave> &listaDeNaves = model.getNaves();
+    for (int i=0; i<listaDeNaves.size(); i++){
+        this->texture = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");  
+        this->target.x = listaDeNaves[i].get_x_atual() + i*70;
+        this->target.y = listaDeNaves[i].get_y_atual() + i*70;
+    }
     // fundo
     this->texture2 = IMG_LoadTexture(this->renderer, "../assets/space1.jpeg");      
     //Asteroid
@@ -77,65 +81,55 @@ int TTF_Init();
 }
 
 void View::renderizar(){
+    vector<Nave> &listaDeNaves = model.getNaves();
+    for(int i=0; i<listaDeNaves.size(); i++){
+        Nave nave = listaDeNaves[i];
+        if (!nave.get_colidiu()){
 
-    if (!nave.get_colidiu()){
+        // Desenhar a cena
+        target.x = nave.get_x_atual();
+        target.y = nave.get_y_atual();
+        target.h = nave.height;
+        target.w = nave.width;
 
-    // Desenhar a cena
-    target.x = nave.get_x_atual();
-    target.y = nave.get_y_atual();
-    target.h = nave.height;
-    target.w = nave.width;
+        SDL_RenderClear(this->renderer);
+        SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
+        SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
 
-    SDL_RenderClear(this->renderer);
-    SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
-    SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
-
-    vector<Tiro> tiros = nave.getTiro();
-    if(!tiros.empty()){
-        for(int i = 0; i < tiros.size(); i++) {
-            target_tiro.x = tiros[i].get_x_atual();
-            target_tiro.y = tiros[i].get_y_atual();    
-            target_tiro.w = tiros[i].width;
-            target_tiro.h = tiros[i].height;
-            SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
+        vector<Tiro> tiros = nave.getTiro();
+        if(!tiros.empty()){
+            for(int i = 0; i < tiros.size(); i++) {
+                target_tiro.x = tiros[i].get_x_atual();
+                target_tiro.y = tiros[i].get_y_atual();    
+                target_tiro.w = tiros[i].width;
+                target_tiro.h = tiros[i].height;
+                SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
+            }
         }
-    }
-    
-    for(int i = 0; i < asteroid.size(); i++) {
-        target_ast.x = asteroid[i].get_x_atual();
-        target_ast.y = asteroid[i].get_y_atual();
-        target_ast.h = asteroid[i].height;
-        target_ast.w = asteroid[i].width;
-        SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));    
-    }
-    
-    //Desenhar o score
-    carregarFonte("SCORE: " + to_string(nave.get_score()) );
-    target_score.x = 800;
-    target_score.y = 560;
-    target_score.h = this->t_height;
-    target_score.w = this->t_width;
-
-    if(!nave.destruir){
-        SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
-    }
-
-    SDL_Delay(1);
-
-    }else{
-        carregarGameOver("GAME OVER");
-        target_score.x = 280;
-        target_score.y = 280;
+        
+        for(int i = 0; i < asteroid.size(); i++) {
+            target_ast.x = asteroid[i].get_x_atual();
+            target_ast.y = asteroid[i].get_y_atual();
+            target_ast.h = asteroid[i].height;
+            target_ast.w = asteroid[i].width;
+            SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));    
+        }
+        
+        //Desenhar o score
+        carregarFonte("SCORE PLAYER"+ to_string(i) +": " + to_string(nave.get_score()) );
+        target_score.x = 100 + i*100;
+        target_score.y = 560;
         target_score.h = this->t_height;
         target_score.w = this->t_width;
 
-        SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
+        if(!nave.destruir){
+            SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
+        }
 
-        SDL_Delay(0);
+        SDL_Delay(1);
+
+        }
     }
-
-    SDL_RenderPresent(this->renderer);
-    // Delay para diminuir o framerate
     
 }
 
