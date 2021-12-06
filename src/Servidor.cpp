@@ -6,6 +6,7 @@
 #include "Tiro.h"
 #include "ModelFinal.h"
 #include "ControllerGeral.h"
+#include "Keyboard.h"
 #include <vector>
 #include "json.hpp"
 #include <fstream>
