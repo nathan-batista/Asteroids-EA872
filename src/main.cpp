@@ -23,8 +23,9 @@ class Receiver{
       void receberJSON(json &j,ModelFinal &modelo,vector<Asteroid> &asteroidsJogo,udp::socket &socketClient,udp::endpoint &serverRemoto){
         char dados[50000];
         socketClient.receive_from(boost::asio::buffer(dados,50000),serverRemoto);
-        j = json::parse(dados);
-        j.at("naves").get_to(modelo);
+        j = nlohmann::json::parse(dados);
+        modelo = j["model"];
+        asteroidsJogo = j["asteroids"];
       }
 };
 

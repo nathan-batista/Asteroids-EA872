@@ -1,11 +1,13 @@
-#include "View.h"
-#include "ModelFinal.h"
+#include "../include/View.h"
+#include "../include/ModelFinal.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <iostream>
 #include <vector>
 #include <string>
+#include "json.hpp"
+
 using namespace std;
 
 const int SCREEN_WIDTH = 1000;
@@ -43,7 +45,7 @@ View::View(ModelFinal &model, vector<Asteroid> &asteroid) : model(model), astero
 
     //Carregando fonte
     
-int TTF_Init();
+    int TTF_Init();
 
     if(TTF_Init()==-1) {
         cerr << "Failed to initialize ttf library!\n";
@@ -98,20 +100,20 @@ void View::renderizar(){
 
         vector<Tiro> tiros = nave.getTiro();
         if(!tiros.empty()){
-            for(int i = 0; i < tiros.size(); i++) {
-                target_tiro.x = tiros[i].get_x_atual();
-                target_tiro.y = tiros[i].get_y_atual();    
-                target_tiro.w = tiros[i].width;
-                target_tiro.h = tiros[i].height;
+            for(int j = 0; j < tiros.size(); j++) {
+                target_tiro.x = tiros[j].get_x_atual();
+                target_tiro.y = tiros[j].get_y_atual();    
+                target_tiro.w = tiros[j].width;
+                target_tiro.h = tiros[j].height;
                 SDL_RenderCopy(this->renderer, this->texture4, nullptr, &(this->target_tiro));
             }
         }
         
-        for(int i = 0; i < asteroid.size(); i++) {
-            target_ast.x = asteroid[i].get_x_atual();
-            target_ast.y = asteroid[i].get_y_atual();
-            target_ast.h = asteroid[i].height;
-            target_ast.w = asteroid[i].width;
+        for(int j = 0; j < asteroid.size(); j++) {
+            target_ast.x = asteroid[j].get_x_atual();
+            target_ast.y = asteroid[j].get_y_atual();
+            target_ast.h = asteroid[j].height;
+            target_ast.w = asteroid[j].width;
             SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));    
         }
         

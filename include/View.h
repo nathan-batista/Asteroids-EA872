@@ -9,8 +9,7 @@
 #include <iostream>
 using namespace std;
 
-#ifndef _View_
-#define _View_
+#pragma once
 class View{
     private:
         ModelFinal &model;
@@ -45,4 +44,4 @@ class View{
 
 };
 
-#endif
+
