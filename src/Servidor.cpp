@@ -4,6 +4,8 @@
 #include "AsteroidController.h"
 #include "TiroController.h"
 #include "Tiro.h"
+#include "ModelFinal.h"
+#include "ControllerGeral.h"
 #include <vector>
 #include "json.hpp"
 #include <fstream>
@@ -58,7 +60,37 @@ int main(){
     }
 
     ModelFinal model = ModelFinal(listaDeNaves);
-    ControllerGeral controller = ControllerGeral(model);
+    j["naves"] = model;
+    vector <Asteroid> asteroids;
+    ControllerGeral controller = ControllerGeral(model, asteroids);
+    j["asteroids"] = asteroids;
+    Keyboard keyboard;
+
+    ////
+    while(true){
+        sendJSON(listaDeClientes, model, j, my_socket);
+        keyboard = receiveInput(keyboard);
+        controller.polling(keyboard);
+    } 
 
     return 0;
+}
+
+void sendJSON(vector<udp::endpoint> listaDeClientes, ModelFinal model, json j, udp::socket my_socket){
+    int num_players = listaDeClientes.size();
+
+    for(int i=0; i<num_players; i++){
+        std::string msg(j);
+        my_socket.send_to(boost::asio::buffer(msg), listaDeClientes[i]);
+    }
+}
+
+Keyboard receiveInput(Keboard teclado){
+        json j;
+        char dados[50000];
+        my_socket.receive_from(boost::asio::buffer(dados,50000), listaDeClientes[i]);
+        j = json::parse(dados);
+        j.at("teclado").get_to(teclado);
+
+        return teclado;
 }
