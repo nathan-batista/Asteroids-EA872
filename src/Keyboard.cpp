@@ -45,9 +45,9 @@ void Keyboard::atualizarEstadoTeclado(){
 bool Keyboard::atualizaEvento() {
     SDL_PollEvent(&(this->evento));
 }
-bool Keyboard::eventoDeSaida(){
-    if(this->evento.type == SDL_QUIT) return true;
-    else return false;
+int Keyboard::eventoDeSaida(){
+    if(this->evento.type == SDL_QUIT) this->saiu = 1;
+    else this->saiu = 0;
 }
 
 void Keyboard::eventoEspaco(){
@@ -67,5 +67,9 @@ int Keyboard::verTecla(int numTecla){
 
 int Keyboard::verEspaco(){
     return this->atirou;
+}
+
+int verSaiu(){
+    return this->saiu;
 }
 

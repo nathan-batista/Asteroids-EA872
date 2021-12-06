@@ -13,17 +13,19 @@ class Keyboard{
         const Uint8* state;
         int teclas[4] = {0,0,0,0};
         int atirou=0;
+        int saiu = 0;
 
     public:
         Keyboard();
         NLOHMANN_DEFINE_TYPE_INTRUSIVE(Keyboard,teclas,atirou);
         void verificaTecla();
         bool atualizaEvento();
-        bool eventoDeSaida();
+        int eventoDeSaida();
         void eventoEspaco();
         void atualizarEstadoTeclado();
         int verTecla(int numTecla);
         int verEspaco();
+        int verSaiu();
 };
 
 
