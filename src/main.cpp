@@ -60,11 +60,11 @@ int main() {
   meu_socket.receive_from(boost::asio::buffer(dadosJogo,50000), // Local do buffer
                       remote_endpoint);
   j = parse(dadosJogo);
-  j.at("naves").get_to(modelJogo); 
+  j.at("model").get_to(modelJogo); 
   Receiver r;
   // Laco principal do jogo
-  std::thread t1(&Receiver::receive,&r,&j,modelJogo,asteroids,&meu_socket,&remote_endpoint);
-  View view = View(modelJogo);
+  std::thread t1(&Receiver::receberJSON,&j,modelJogo,asteroids,&meu_socket,&remote_endpoint);
+  View view = View(modelJogo,asteroids);
   while(true) {
     tecladoJogador.atualizarEstadoTeclado();
     j["teclado"] = tecladoJogador;

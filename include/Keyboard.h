@@ -11,14 +11,16 @@ class Keyboard{
     private:
         SDL_Event evento; // eventos discretos
         const Uint8* state;
+        int teclas[4] = {0,0,0,0};
+        int atirou=0;
 
     public:
         Keyboard();
-        NLOHMANN_DEFINE_TYPE_INTRUSIVE(Keyboard,state);
-        bool verificaTecla(string tecla);
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE(Keyboard,teclas,atirou);
+        void verificaTecla();
         bool atualizaEvento();
         bool eventoDeSaida();
-        bool eventoEspaco();
+        void eventoEspaco();
         void atualizarEstadoTeclado();
 };
 

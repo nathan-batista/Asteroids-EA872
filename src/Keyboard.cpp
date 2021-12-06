@@ -11,23 +11,31 @@ Keyboard::Keyboard(){
         this->state = SDL_GetKeyboardState(nullptr);
 }
 
-bool Keyboard::verificaTecla(string tecla) {
-    if(tecla.compare("LEFT")) {
-        return state[SDL_SCANCODE_LEFT];
+void Keyboard::verificaTecla() {
+    if(state[SDL_SCANCODE_LEFT]) {
+        this->teclas[0] = 1;
     }
-    else if(tecla.compare("RIGHT")) {
-        return state[SDL_SCANCODE_RIGHT];
+    else{
+        this->teclas[0] = 0;
     }
-    else if(tecla.compare("UP")) {
-        return state[SDL_SCANCODE_UP];
+    if(state[SDL_SCANCODE_RIGHT]) {
+        this->teclas[1] = 1;
     }
-    else if(tecla.compare("DOWN")) {
-        return state[SDL_SCANCODE_DOWN];
+    else{
+        this->teclas[1] = 0;
     }
-    else if(tecla.compare("SPACE")){
-        return state[SDL_SCANCODE_SPACE];
+    if(state[SDL_SCANCODE_UP]) {
+        this->teclas[2] = 1;
     }
-    return false;
+    else{
+        this->teclas[2] = 0;
+    }
+    if(state[SDL_SCANCODE_DOWN]) {
+        this->teclas[3] = 1;
+    }
+    else{
+        this->teclas[3] = 0;
+    }
 }
 
 void Keyboard::atualizarEstadoTeclado(){
@@ -42,13 +50,15 @@ bool Keyboard::eventoDeSaida(){
     else return false;
 }
 
-bool Keyboard::eventoEspaco(){
+void Keyboard::eventoEspaco(){
     if(this->evento.type == SDL_KEYDOWN){
         if(state[SDL_SCANCODE_SPACE]){
-            return true;
+            this->atirou = 1;
+        }
+        else{
+            this->atirou = 0;
         }
     }
-    return false;
 }
 
 
