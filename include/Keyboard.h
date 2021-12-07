@@ -19,10 +19,10 @@ class Keyboard{
     public:
         Keyboard();
         NLOHMANN_DEFINE_TYPE_INTRUSIVE(Keyboard,teclas,atirou);
-        void verificaTecla();
-        void atualizaEvento();
-        void eventoDeSaida();
-        void eventoEspaco();
+        int* verificaTecla();
+        bool atualizaEvento();
+        int eventoDeSaida();
+        int eventoEspaco();
         void atualizarEstadoTeclado();
         int verTecla(int numTecla);
         int verEspaco();

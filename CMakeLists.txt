@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0)
 project(Asteroids)
 
 #
-add_executable(Asteroids src/main.cpp)
+add_executable(Asteroids src/cliente.cpp)
 
 # Especificar onde estao os header files
 include_directories(include)
@@ -27,6 +27,10 @@ add_library(TiroController src/TiroController.cpp)
 target_link_libraries(Asteroids TiroController)
 add_library(Keyboard src/Keyboard.cpp)
 target_link_libraries(Asteroids Keyboard)
+add_library(ModelFinal src/ModelFinal.cpp)
+target_link_libraries(Asteroids ModelFinal)
+add_library(ControllerGeral src/ControllerGeral.cpp)
+target_link_libraries(Asteroids ControllerGeral)
 
 # Garantir que usaremos C++11 (ou superior, se preciso)
 set(CMAKE_CXX_STANDARD 11)

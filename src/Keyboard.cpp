@@ -10,7 +10,7 @@ Keyboard::Keyboard(){
         this->state = SDL_GetKeyboardState(nullptr);
 }
 
-void Keyboard::verificaTecla() {
+int* Keyboard::verificaTecla() {
     if(state[SDL_SCANCODE_LEFT]) {
         this->teclas[0] = 1;
     }
@@ -35,21 +35,29 @@ void Keyboard::verificaTecla() {
     else{
         this->teclas[3] = 0;
     }
+    return this->teclas;
 }
 
 void Keyboard::atualizarEstadoTeclado(){
         SDL_PumpEvents(); 
 }
 
-void Keyboard::atualizaEvento() {
-    SDL_PollEvent(&(this->evento));
+bool Keyboard::atualizaEvento() {
+    return SDL_PollEvent(&(this->evento));
 }
-void Keyboard::eventoDeSaida(){
-    if(this->evento.type == SDL_QUIT) this->saiu = 1;
-    else this->saiu = 0;
+int Keyboard::eventoDeSaida(){
+    if(this->evento.type == SDL_QUIT) {
+        this->saiu = 1;     
+    } 
+
+    else  {
+        this->saiu = 0;
+    }
+
+    return this->saiu;
 }
 
-void Keyboard::eventoEspaco(){
+int Keyboard::eventoEspaco(){
     if(this->evento.type == SDL_KEYDOWN){
         if(state[SDL_SCANCODE_SPACE]){
             this->atirou = 1;
@@ -58,6 +66,12 @@ void Keyboard::eventoEspaco(){
             this->atirou = 0;
         }
     }
+
+    else {
+        this->atirou = 0;
+    }
+
+    return this->atirou;
 }
 
 int Keyboard::verTecla(int numTecla){
