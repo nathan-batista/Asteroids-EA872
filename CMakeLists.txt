@@ -25,7 +25,8 @@ add_library(Tiro src/Tiro.cpp)
 target_link_libraries(Asteroids Tiro)
 add_library(TiroController src/TiroController.cpp)
 target_link_libraries(Asteroids TiroController)
-
+add_library(Keyboard src/Keyboard.cpp)
+target_link_libraries(Asteroids Keyboard)
 
 # Garantir que usaremos C++11 (ou superior, se preciso)
 set(CMAKE_CXX_STANDARD 11)

@@ -1,49 +1,73 @@
 #include <SDL2/SDL.h>
+#include "Keyboard.h"
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-
-#pragma once
+#include <string>
 
 using namespace std;
 
 Keyboard::Keyboard(){
-        this->evento = true;
         this->state = SDL_GetKeyboardState(nullptr);
 }
 
-bool Keyboard::verificaTecla(string tecla) {
-
-    SDL_PumpEvents(); 
-
-    if(tecla.compare("LEFT")) {
-        return state[SDL_SCANCODE_LEFT];
+void Keyboard::verificaTecla() {
+    if(state[SDL_SCANCODE_LEFT]) {
+        this->teclas[0] = 1;
     }
-
-    else if(tecla.compare("RIGHT")) {
-        return state[SDL_SCANCODE_RIGHT];
+    else{
+        this->teclas[0] = 0;
     }
-
-    else if(tecla.compare("UP")) {
-        return state[SDL_SCANCODE_UP];
+    if(state[SDL_SCANCODE_RIGHT]) {
+        this->teclas[1] = 1;
     }
-
-    else if(tecla.compare("DOWN")) {
-        return state[SDL_SCANCODE_DOWN];
+    else{
+        this->teclas[1] = 0;
     }
-
-    return false;
+    if(state[SDL_SCANCODE_UP]) {
+        this->teclas[2] = 1;
+    }
+    else{
+        this->teclas[2] = 0;
+    }
+    if(state[SDL_SCANCODE_DOWN]) {
+        this->teclas[3] = 1;
+    }
+    else{
+        this->teclas[3] = 0;
+    }
 }
 
-bool Keyboard::verificaSaida() {
+void Keyboard::atualizarEstadoTeclado(){
+        SDL_PumpEvents(); 
+}
 
-    while (SDL_PollEvent(&(this->evento))) {
-        if (this->evento.type == SDL_QUIT) {
-          return true;
+void Keyboard::atualizaEvento() {
+    SDL_PollEvent(&(this->evento));
+}
+void Keyboard::eventoDeSaida(){
+    if(this->evento.type == SDL_QUIT) this->saiu = 1;
+    else this->saiu = 0;
+}
+
+void Keyboard::eventoEspaco(){
+    if(this->evento.type == SDL_KEYDOWN){
+        if(state[SDL_SCANCODE_SPACE]){
+            this->atirou = 1;
+        }
+        else{
+            this->atirou = 0;
         }
     }
-
-    return false;
-
 }
 
+int Keyboard::verTecla(int numTecla){
+    return this->teclas[numTecla];
+}
 
+int Keyboard::verEspaco(){
+    return this->atirou;
+}
+
+int Keyboard::verSaiu(){
+    return this->saiu;
+}
