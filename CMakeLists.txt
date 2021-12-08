@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0)
 project(Asteroids)
 
 #
-add_executable(Asteroids src/cliente.cpp)
+add_executable(Asteroids src/Servidor.cpp)
 
 # Especificar onde estao os header files
 include_directories(include)
@@ -41,3 +41,4 @@ set(CMAKE_CXX_FLAGS "-g")
 target_link_libraries(Asteroids SDL2)
 target_link_libraries(Asteroids SDL2_image)
 target_link_libraries(Asteroids SDL2_ttf)
+target_link_libraries(Asteroids pthread)
