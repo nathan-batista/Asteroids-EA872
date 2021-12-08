@@ -17,14 +17,11 @@ using namespace std;
 using nlohmann::json;
 using boost::asio::ip::udp;
 
-static boost::asio::io_context::io_context(const boost::asio::io_context&);
-static const boost::asio::io_service my_io_service; // Conecta com o SO
-static const  udp::endpoint local_endpoint(udp::v4(), 9001); // endpoint: contem
-static const  udp::socket my_socket(my_io_service, local_endpoint); // endpoint
-static const  udp::endpoint remote_endpoint; // vai conter informacoes de quem conectar
-	    
-
-
+ boost::asio::io_service my_io_service; // Conecta com o SO
+ udp::endpoint local_endpoint(udp::v4(), 9001); // endpoint: contem
+ udp::socket my_socket(my_io_service, local_endpoint); // endpoint
+ udp::endpoint remote_endpoint; // vai conter informacoes de quem conectar
+   
     void sendJSON(vector<udp::endpoint> listaDeClientes, ModelFinal model, json j){
 	    int num_players = listaDeClientes.size();
 	
@@ -79,13 +76,16 @@ static const  udp::endpoint remote_endpoint; // vai conter informacoes de quem c
 	        Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, i);
 	        listaDeNaves.push_back(nave);
 	    }
-	
+
+		vector<Tiro> tiros;
+	    Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, 0);
+	    listaDeNaves.push_back(nave);
 	    ModelFinal model = ModelFinal(listaDeNaves);
 	    j["naves"] = model.getNaves();
 	    vector <Asteroid> asteroids;
 	    ControllerGeral controller = ControllerGeral(model, asteroids);
 	    j["asteroids"] = asteroids;
-	    Keyboard keyboard;
+	    Keyboard keyboard = Keyboard();
 	
 	    ////
 	    while(true){

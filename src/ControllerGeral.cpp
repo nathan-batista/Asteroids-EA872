@@ -1,10 +1,10 @@
+#include "ControllerGeral.h"
 #include "Nave.h"
 #include "Tiro.h"
 #include "Asteroid.h"
 #include "ModelFinal.h"
 #include <vector>
 #include "Keyboard.h"
-#include "ControllerGeral.h"
 #include "NaveController.h"
 
 using namespace std;
