@@ -64,7 +64,7 @@ int TTF_Init();
     // Carregando texturas
 
     // Naves
-    vector<Nave> listaDeNaves = model.getNaves();
+    vector<Nave>& listaDeNaves = model.getNaves();
     for (int i=0; i<listaDeNaves.size(); i++){
         this->texture = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");  
         this->target.x = listaDeNaves[i].get_x_atual() + i*70;
@@ -84,7 +84,7 @@ int TTF_Init();
 }
 
 void View::renderizar(){
-    vector<Nave> listaDeNaves = model.getNaves();
+    vector<Nave>& listaDeNaves = model.getNaves();
     for(int i=0; i<listaDeNaves.size(); i++){
         Nave nave = listaDeNaves[i];
         if (!nave.get_colidiu()){
@@ -99,7 +99,7 @@ void View::renderizar(){
         SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
         SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
 
-        vector<Tiro> tiros = nave.getTiro();
+        vector<Tiro>& tiros = nave.getTiro();
         if(!tiros.empty()){
             for(int i = 0; i < tiros.size(); i++) {
                 target_tiro.x = tiros[i].get_x_atual();

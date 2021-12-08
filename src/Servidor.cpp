@@ -7,6 +7,7 @@
 #include "ModelFinal.h"
 #include "ControllerGeral.h"
 #include "Keyboard.h"
+#include "View.h"
 #include <vector>
 #include "json.hpp"
 #include <fstream>
@@ -21,7 +22,7 @@ using boost::asio::ip::udp;
  udp::endpoint local_endpoint(udp::v4(), 9001); // endpoint: contem
  udp::socket my_socket(my_io_service, local_endpoint); // endpoint
  udp::endpoint remote_endpoint; // vai conter informacoes de quem conectar
-   
+ 
     void sendJSON(vector<udp::endpoint> listaDeClientes, ModelFinal model, json j){
 	    int num_players = listaDeClientes.size();
 	
@@ -72,27 +73,37 @@ using boost::asio::ip::udp;
 	    }
 	  
 	    for(int i = 0; i<num_players;i++){
+			Tiro tiro = Tiro(-10,-10,0,0,0);
 	        vector<Tiro> tiros;
+			tiros.push_back(tiro);
 	        Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, i);
 	        listaDeNaves.push_back(nave);
 	    }
-
-		vector<Tiro> tiros;
-	    Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, 0);
-	    listaDeNaves.push_back(nave);
-	    ModelFinal model = ModelFinal(listaDeNaves);
-	    j["naves"] = model.getNaves();
-	    vector <Asteroid> asteroids;
-	    ControllerGeral controller = ControllerGeral(model, asteroids);
-	    j["asteroids"] = asteroids;
-	    Keyboard keyboard = Keyboard();
+		
+		
+  	vector<Asteroid> asteroids;
+  	Tiro tiro = Tiro(-10,-10,0,0,0);
+  	vector<Tiro> tiros;
+  	tiros.push_back(tiro);
+ 	Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, 0);
+ 	Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
+ 	asteroids.push_back(asteroid);
+ 	listaDeNaves.push_back(nave);
+  	ModelFinal model = ModelFinal(listaDeNaves);
+  	Keyboard keyboard = Keyboard();
+  	ControllerGeral controller = ControllerGeral(model, asteroids);
+  	View view = View(model, asteroids);
 	
-	    ////
+
+	j["asteroids"] = asteroids;
+	j["naves"] = model.getNaves();
+		
+
 	    while(true){
 	        sendJSON(listaDeClientes, model, j);
 	        receiveInput(listaDeClientes, keyboard);
 	        controller.polling(keyboard);
 	    } 
-	
-	    return 0;
+			
+		return 0;
 	}

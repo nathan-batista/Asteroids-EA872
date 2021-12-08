@@ -10,7 +10,7 @@ Keyboard::Keyboard(){
         this->state = SDL_GetKeyboardState(nullptr);
 }
 
-int* Keyboard::verificaTecla() {
+void Keyboard::verificaTecla() {
     if(state[SDL_SCANCODE_LEFT]) {
         this->teclas[0] = 1;
     }
@@ -35,7 +35,6 @@ int* Keyboard::verificaTecla() {
     else{
         this->teclas[3] = 0;
     }
-    return this->teclas;
 }
 
 void Keyboard::atualizarEstadoTeclado(){

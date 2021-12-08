@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0)
 project(Asteroids)
 
 #
-add_executable(Asteroids src/Servidor.cpp)
+add_executable(Asteroids src/cliente.cpp)
 
 # Especificar onde estao os header files
 include_directories(include)

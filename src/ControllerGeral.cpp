@@ -15,49 +15,23 @@ ControllerGeral::ControllerGeral(ModelFinal &m,vector<Asteroid> &a):model(m),ast
 
 void ControllerGeral::polling(Keyboard &teclado){
     int i=0;
-    vector<Nave> navesDoJogo = model.getNaves();
-    int *tecla;
+    vector<Nave>& navesDoJogo = model.getNaves();
     for(i = 0; navesDoJogo.size();i++){
         teclado.atualizarEstadoTeclado();
+        if (teclado.verTecla(0)) navesDoJogo[i].set_x_atual(navesDoJogo[i].get_x_atual()-10);
+        if (teclado.verTecla(1)) navesDoJogo[i].set_x_atual(navesDoJogo[i].get_x_atual() + 10);
+        if (teclado.verTecla(2)) navesDoJogo[i].set_y_atual(navesDoJogo[i].get_y_atual() - 10);
+        if (teclado.verTecla(3)) navesDoJogo[i].set_y_atual(navesDoJogo[i].get_y_atual() + 10);
 
-        tecla = teclado.verificaTecla();
-        if (tecla[0] == 1) {
-            navesDoJogo[i].set_x_atual(navesDoJogo[i].get_x_atual()-10);
-        }
+        if(teclado.verEspaco()){
+            float x = navesDoJogo[i].get_x_atual();
+            float y = navesDoJogo[i].get_y_atual();
+            float vy = -100;
+            float dt = navesDoJogo[i].get_dt();
 
-        if(tecla[1] == 1) {
-            navesDoJogo[i].set_x_atual(navesDoJogo[i].get_x_atual() + 10);
-        }
-
-        if(tecla[2] == 1) {
-            navesDoJogo[i].set_y_atual(navesDoJogo[i].get_y_atual() - 10);
-        }
-
-        if(tecla[3] == 1) {
-            navesDoJogo[i].set_y_atual(navesDoJogo[i].get_y_atual() + 10);
-        }
-
-
-        /*if (teclado.verificaTecla("LEFT")) navesDoJogo[i].set_x_atual(navesDoJogo[i].get_x_atual()-10);
-        if (teclado.verificaTecla("RIGHT")) navesDoJogo[i].set_x_atual(navesDoJogo[i].get_x_atual() + 10);
-        if (teclado.verificaTecla("UP")) navesDoJogo[i].set_y_atual(navesDoJogo[i].get_y_atual() - 10);
-        if (teclado.verificaTecla("DOWN")) navesDoJogo[i].set_y_atual(navesDoJogo[i].get_y_atual() + 10);
-*/
-        while (teclado.atualizaEvento()) {
-            if (teclado.eventoDeSaida()){
-                this->rodando = false;
-            }
-
-            else if(teclado.eventoEspaco()){
-                float x = navesDoJogo[i].get_x_atual();
-                float y = navesDoJogo[i].get_y_atual();
-                float vy = -100;
-                float dt = navesDoJogo[i].get_dt();
-
-                Tiro tiroNave = Tiro(x, y, 0, vy, dt);
-                navesDoJogo[i].atirar(tiroNave);            
-            }
-        }   
+            Tiro tiroNave = Tiro(x, y, 0, vy, dt);
+            navesDoJogo[i].atirar(tiroNave);            
+        } 
     }
 
     if(asteroid.size() < 20) {
@@ -72,10 +46,10 @@ void ControllerGeral::polling(Keyboard &teclado){
 }
 
 void ControllerGeral::update(){
-    vector<Nave> navesDoJogo = model.getNaves();
+    vector<Nave> &navesDoJogo = model.getNaves();
     for(int i =0;i<navesDoJogo.size();i++){
         vector<int> ast1, tir1;
-        vector<Tiro> &tiro = navesDoJogo[i].getTiro();
+        vector<Tiro>&tiro = navesDoJogo[i].getTiro();
         int k= 0;
 
         for(k = 0; k < asteroid.size(); k++) {
