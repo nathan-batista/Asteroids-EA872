@@ -60,6 +60,7 @@ using boost::asio::ip::udp;
 	        if(find(listaDeClientes.begin(),listaDeClientes.end(),remote_endpoint) == listaDeClientes.end()){
 	            listaDeClientes.push_back(remote_endpoint);
 	        }
+			std::cout << "Um usuário se conectou" << std::endl;
 	        std::cout << "Quando todos se conectarem, digite 1" << std::endl;
 	        std::cin >> resp;
 	    }
@@ -75,8 +76,8 @@ using boost::asio::ip::udp;
 	    for(int i = 0; i<num_players;i++){
 			Tiro tiro = Tiro(-10,-10,0,0,0);
 	        vector<Tiro> tiros;
-			tiros.push_back(tiro);
-	        Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, i);
+			//tiros.push_back(tiro);
+	        Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1,i);
 	        listaDeNaves.push_back(nave);
 	    }
 		
@@ -85,7 +86,7 @@ using boost::asio::ip::udp;
   	Tiro tiro = Tiro(-10,-10,0,0,0);
   	vector<Tiro> tiros;
   	tiros.push_back(tiro);
- 	Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, tiros, 0);
+ 	Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, 0);
  	Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
  	asteroids.push_back(asteroid);
  	listaDeNaves.push_back(nave);

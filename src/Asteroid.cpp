@@ -9,7 +9,7 @@ Asteroid::Asteroid(float x, float y, float vx, float vy, float dt){
       this->dt = dt;
       this->width = 65;
       this->height = 65;
-};
+}
 
 float Asteroid::get_dt(){
     return this->dt;

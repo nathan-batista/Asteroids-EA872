@@ -11,6 +11,7 @@ class Tiro{
     
     public:
         NLOHMANN_DEFINE_TYPE_INTRUSIVE(Tiro,dt,x_atual,y_atual,vx_atual,vy_atual);
+        Tiro(){}
         Tiro(float x0, float y0, float vx, float vy, float dt);
         bool flag;
         bool destruir;

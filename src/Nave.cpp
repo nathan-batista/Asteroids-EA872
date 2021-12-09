@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-Nave::Nave(float m, float k, float b, float x0, float y0, float v0, float dt, vector<Tiro> &tiro,int identificador) : tiro(tiro){
+Nave::Nave(float m, float k, float b, float x0, float y0, float v0, float dt,int identificador){
       //setando variaveis iniciais
       this->m = m;
       this->k = k;

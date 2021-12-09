@@ -21,11 +21,12 @@ class Nave{
         int score;
         char *imagem_principal;
         char *imagem_fundo;
-        vector<Tiro> &tiro;
+        vector<Tiro> tiro;
         int id;
     public:
-        Nave(float m, float k, float b, float x0, float y0, float v0, float dt, vector<Tiro> &tiro,int identificador);
-        NLOHMANN_DEFINE_TYPE_INTRUSIVE(Nave,m,k,b,x0,y0,v0,dt,x_atual,y_atual,v_atual,score,id);
+        Nave(float m, float k, float b, float x0, float y0, float v0, float dt,int identificador);
+        Nave(){}
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE(Nave,m,k,b,x0,y0,v0,dt,x_atual,y_atual,v_atual,score,tiro,id);
         float get_m();
         float width;
         float height;
