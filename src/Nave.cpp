@@ -79,3 +79,7 @@ void Nave::gameover(){
 vector<Tiro>& Nave::getTiro(){
     return (this->tiro);
 }
+
+vector<Tiro> Nave::verTiro(){
+    return (this->tiro);
+}

@@ -26,7 +26,7 @@ class Nave{
     public:
         Nave(float m, float k, float b, float x0, float y0, float v0, float dt,int identificador);
         Nave(){}
-        NLOHMANN_DEFINE_TYPE_INTRUSIVE(Nave,m,k,b,x0,y0,v0,dt,x_atual,y_atual,v_atual,score,tiro,id);
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE(Nave,m,k,b,x0,y0,v0,dt,x_atual,y_atual,v_atual,score,tiro,width,height,destruir,id);
         float get_m();
         float width;
         float height;
@@ -48,4 +48,5 @@ class Nave{
         void update_score(int i);
         void apagar_tiro(int i);
         vector<Tiro>& getTiro();
+        vector<Tiro> verTiro();
 };

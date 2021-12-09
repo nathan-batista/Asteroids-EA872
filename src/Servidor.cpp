@@ -47,10 +47,12 @@ using boost::asio::ip::udp;
 		//teclado->teclas = tecladoPressionado;
 		j["atirou"].get_to(teclado->atirou);
 		j["saiu"].get_to(teclado->saiu);
+		j["id"].get_to(teclado->id);
 		teclado->teclas[0] = tecladoPressionado[0];
 		teclado->teclas[1] = tecladoPressionado[1];
 		teclado->teclas[2] = tecladoPressionado[2];
 		teclado->teclas[3] = tecladoPressionado[3];
+		std::cout << "Teclas Recebidas : " << to_string(tecladoPressionado[0]) + " " << to_string(tecladoPressionado[1]) + " " << to_string(tecladoPressionado[2]) + " " << to_string(tecladoPressionado[3]) + " " <<std::endl;
 		}
 		catch(...) { std::cout<< "Cagou aqui" << std::endl;}
 		//*teclado->atirou = j["atirou"];
@@ -66,8 +68,8 @@ using boost::asio::ip::udp;
 	    
 	    std::cout << "Server Conectado" << std::endl;
 	    vector<udp::endpoint> listaDeClientes;
-	    std::cout << "Quando todos se conectarem, digite 1" << std::endl;
-	    std::cin >> resp;
+	    std::cout << "Aguardando conexoes de jogadores" << std::endl;
+	    resp = '0';
 
 	    while(resp != '1'){
 	        my_socket.receive_from(boost::asio::buffer(v,10000), // Local do buffer
@@ -76,9 +78,11 @@ using boost::asio::ip::udp;
 	            listaDeClientes.push_back(remote_endpoint);
 	        }
 			std::cout << "Um usuário se conectou" << std::endl;
-	        std::cout << "Quando todos se conectarem, digite 1" << std::endl;
+	        std::cout << "Quando todos se conectarem, digite 1, digite 0 se ira aguardar uma nova conexao" << std::endl;
 	        std::cin >> resp;
 	    }
+
+		std::cout << "Jogo Iniciado" << std::endl;
 	
 	    // Enviando ID pro cliente
 	    int num_players = listaDeClientes.size();
@@ -125,11 +129,12 @@ using boost::asio::ip::udp;
 	    //sendJSON(listaDeClientes, model, j);
 	    //receiveInput(listaDeClientes, keyboard);
 	    controller.polling(keyboard);
+		controller.update();
 		astController.update();
 		for(int i=0; i<listaDeNaves.size();i++){
 			tirController.update(listaDeNaves[i].getTiro());
 		}
 	} 
 			
-		return 0;
-	}
+	return 0;
+}

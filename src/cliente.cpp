@@ -5,6 +5,8 @@
 #include "AsteroidController.h"
 #include "TiroController.h"
 #include "Tiro.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <vector>
 #include "json.hpp"
@@ -13,6 +15,8 @@
 #include <boost/asio.hpp>
 #include "Keyboard.h"
 #include "ModelFinal.h"
+#include <thread>
+#include <chrono>
 
 using namespace std;
 using nlohmann::json;
@@ -34,6 +38,24 @@ using boost::asio::ip::udp;
         vector<Asteroid> asteroidsTotais = j1["asteroid"];
         *asteroidsJogo = asteroidsTotais;
       }
+
+      void sendJSON(Keyboard *tecladoJogador){
+        boost::asio::io_service io_service;
+        udp::endpoint local_endpoint(udp::v4(), 0);
+        udp::socket meu_socket(io_service, local_endpoint);
+        boost::asio::ip::address ip_remoto = boost::asio::ip::address::from_string("25.65.162.21");
+        udp::endpoint remote_endpoint(ip_remoto, 9001);
+        json j2;
+        tecladoJogador->atualizarEstadoTeclado();
+        tecladoJogador->verificaTecla();
+        tecladoJogador->atualizaEvento();
+        j2["teclas"] = tecladoJogador->teclas;
+        j2["saiu"] = tecladoJogador->saiu;
+        j2["atirou"] = tecladoJogador->atirou;
+        j2["id"] = tecladoJogador->id;
+        meu_socket.send_to(boost::asio::buffer(j2.dump()), remote_endpoint);
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
 
 
 
@@ -74,7 +96,7 @@ int main() {
   
   std::cout << "Mensagem recebida do servidor, identificador = " << v[0] << std::endl;
   int idJogador = v[0] - '0';
-  std::cout << to_string(idJogador) << endl;
+  //std::cout << to_string(idJogador) << endl;
   tecladoJogador.id = idJogador;
 
   meu_socket.receive_from(boost::asio::buffer(dadosJogo,50000), // Local do buffer
@@ -85,19 +107,15 @@ int main() {
 
 
   // Laco principal do jogo
-  std::thread t1(&receberJSON,&navesJogo,&asteroids);
   View view = View(modelJogo,asteroids);
+  std::thread t1(&receberJSON,&navesJogo,&asteroids);
+  std::thread t2(&sendJSON,&tecladoJogador);
   while(true) {
-    tecladoJogador.atualizarEstadoTeclado();
-    tecladoJogador.verificaTecla();
-    tecladoJogador.atualizaEvento();
-    j["teclas"] = tecladoJogador.teclas;
-    j["saiu"] = tecladoJogador.saiu;
-    j["atirou"] = tecladoJogador.atirou;
     view.renderizar();
-    meu_socket.send_to(boost::asio::buffer(j["teclado"].dump()),remote_endpoint);
+    //meu_socket.send_to(boost::asio::buffer(j.dump()),remote_endpoint);
   }
   t1.join();
+  t2.join();
 
 
   view.destruir();

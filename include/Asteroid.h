@@ -15,7 +15,7 @@ class Asteroid{
     public:
         Asteroid(float x0, float y0, float vx, float vy, float dt);
         Asteroid(){}
-    	NLOHMANN_DEFINE_TYPE_INTRUSIVE(Asteroid,dt,x_atual,y_atual,vx_atual,vy_atual);
+    	NLOHMANN_DEFINE_TYPE_INTRUSIVE(Asteroid,dt,x_atual,y_atual,vx_atual,vy_atual,width,height);
         float get_dt();
         float width;
         float height;
