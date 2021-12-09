@@ -85,6 +85,7 @@ int TTF_Init();
 
 void View::renderizar(){
     vector<Nave>& listaDeNaves = model.getNaves();
+    std::cout << "Numero de Naves no Model: " << to_string(listaDeNaves.size()) << std::endl;
     for(int i=0; i<listaDeNaves.size(); i++){
         Nave nave = listaDeNaves[i];
         if (!nave.get_colidiu()){

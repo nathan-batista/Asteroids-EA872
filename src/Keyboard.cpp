@@ -41,8 +41,19 @@ void Keyboard::atualizarEstadoTeclado(){
         SDL_PumpEvents(); 
 }
 
-bool Keyboard::atualizaEvento() {
-    return SDL_PollEvent(&(this->evento));
+void Keyboard::atualizaEvento() {
+    while(SDL_PollEvent(&(this->evento))){
+
+        if(this->evento.type == SDL_QUIT) {
+            this->saiu = 1;     
+        }   
+
+        else if(this->evento.type == SDL_KEYDOWN){
+            if(state[SDL_SCANCODE_SPACE]){
+                this->atirou = 1;
+            }
+        }
+    }
 }
 int Keyboard::eventoDeSaida(){
     if(this->evento.type == SDL_QUIT) {

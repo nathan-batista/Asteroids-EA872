@@ -72,9 +72,10 @@ int main() {
   meu_socket.receive_from(boost::asio::buffer(v,2), // Local do buffer
                       remote_endpoint);
   
-  std::cout << "Mensagem recebida do servidor, identificador = " + v[0] << std::endl;
+  std::cout << "Mensagem recebida do servidor, identificador = " << v[0] << std::endl;
   int idJogador = v[0] - '0';
   std::cout << to_string(idJogador) << endl;
+  tecladoJogador.id = idJogador;
 
   meu_socket.receive_from(boost::asio::buffer(dadosJogo,50000), // Local do buffer
                       remote_endpoint);
@@ -88,9 +89,13 @@ int main() {
   View view = View(modelJogo,asteroids);
   while(true) {
     tecladoJogador.atualizarEstadoTeclado();
-    j["teclado"] = tecladoJogador;
-    meu_socket.send_to(boost::asio::buffer(j["teclado"].dump()),remote_endpoint);
+    tecladoJogador.verificaTecla();
+    tecladoJogador.atualizaEvento();
+    j["teclas"] = tecladoJogador.teclas;
+    j["saiu"] = tecladoJogador.saiu;
+    j["atirou"] = tecladoJogador.atirou;
     view.renderizar();
+    meu_socket.send_to(boost::asio::buffer(j["teclado"].dump()),remote_endpoint);
   }
   t1.join();
 

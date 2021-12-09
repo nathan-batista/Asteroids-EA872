@@ -13,6 +13,8 @@
 #include <fstream>
 #include <iostream>
 #include <boost/asio.hpp>
+#include <chrono>
+#include <thread>
         
 using namespace std;
 using nlohmann::json;
@@ -23,23 +25,36 @@ using boost::asio::ip::udp;
  udp::socket my_socket(my_io_service, local_endpoint); // endpoint
  udp::endpoint remote_endpoint; // vai conter informacoes de quem conectar
  
-    void sendJSON(vector<udp::endpoint> listaDeClientes, ModelFinal model, json j){
+    void sendJSON(vector<udp::endpoint> listaDeClientes, vector<Nave> listaNave,vector<Asteroid> ast, json j){
 	    int num_players = listaDeClientes.size();
-	
+		j["naves"] = listaNave;
+		j["asteroids"] = ast;
 	    for(int i=0; i<num_players; i++){
-	        std::string msg(j);
-	        my_socket.send_to(boost::asio::buffer(msg), listaDeClientes[i]);
+	        my_socket.send_to(boost::asio::buffer(j.dump()), listaDeClientes[i]);
 	    }
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 
 
-	void receiveInput(vector<udp::endpoint> listaDeClientes, Keyboard teclado){
+	void receiveInput(vector<udp::endpoint> listaDeClientes, Keyboard *teclado){
 	    json j;
 	    char dados[50000];
-	    my_socket.receive_from(boost::asio::buffer(dados,50000), listaDeClientes[0]);
+	    my_socket.receive_from(boost::asio::buffer(dados,50000), remote_endpoint);
 	    j = json::parse(dados);
-	    j.at("teclado").get_to(teclado);
-	
+		try{
+		int tecladoPressionado[4];
+		j["teclas"].get_to(tecladoPressionado); 
+		//teclado->teclas = tecladoPressionado;
+		j["atirou"].get_to(teclado->atirou);
+		j["saiu"].get_to(teclado->saiu);
+		teclado->teclas[0] = tecladoPressionado[0];
+		teclado->teclas[1] = tecladoPressionado[1];
+		teclado->teclas[2] = tecladoPressionado[2];
+		teclado->teclas[3] = tecladoPressionado[3];
+		}
+		catch(...) { std::cout<< "Cagou aqui" << std::endl;}
+		//*teclado->atirou = j["atirou"];
+		//*teclado->saiu = j["saiu"];
 	}
 	
 	int main(){
@@ -83,28 +98,38 @@ using boost::asio::ip::udp;
 		
 		
   	vector<Asteroid> asteroids;
+	  /*
   	Tiro tiro = Tiro(-10,-10,0,0,0);
   	vector<Tiro> tiros;
   	tiros.push_back(tiro);
  	Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, 0);
  	Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
  	asteroids.push_back(asteroid);
- 	listaDeNaves.push_back(nave);
+ 	listaDeNaves.push_back(nave); */
+	Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
+ 	asteroids.push_back(asteroid);
   	ModelFinal model = ModelFinal(listaDeNaves);
   	Keyboard keyboard = Keyboard();
   	ControllerGeral controller = ControllerGeral(model, asteroids);
-  	View view = View(model, asteroids);
+	AsteroidController astController = AsteroidController(asteroids);
+	TiroController tirController = TiroController();
+  	//View view = View(model, asteroids);
 	
 
 	j["asteroids"] = asteroids;
-	j["naves"] = model.getNaves();
+	j["naves"] = listaDeNaves;
 		
-
-	    while(true){
-	        sendJSON(listaDeClientes, model, j);
-	        receiveInput(listaDeClientes, keyboard);
-	        controller.polling(keyboard);
-	    } 
+	std::thread t1(&receiveInput,listaDeClientes,&keyboard);
+	std::thread t2(&sendJSON,listaDeClientes,listaDeNaves,asteroids,j);
+	while(true){
+	    //sendJSON(listaDeClientes, model, j);
+	    //receiveInput(listaDeClientes, keyboard);
+	    controller.polling(keyboard);
+		astController.update();
+		for(int i=0; i<listaDeNaves.size();i++){
+			tirController.update(listaDeNaves[i].getTiro());
+		}
+	} 
 			
 		return 0;
 	}
