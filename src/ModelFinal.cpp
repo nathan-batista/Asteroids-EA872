@@ -30,3 +30,7 @@ void ModelFinal::remover_nave(int id){
 vector<Nave>& ModelFinal::getNaves(){
     return this->naves;
 }
+
+vector<Nave> ModelFinal::verNaves(){
+    return this->naves;
+}

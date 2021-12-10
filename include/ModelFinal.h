@@ -15,4 +15,5 @@ class ModelFinal{
         void adicionar_nave(Nave &n);
         void remover_nave(int id);
         vector<Nave> &getNaves();
+        vector<Nave> verNaves();
 };
