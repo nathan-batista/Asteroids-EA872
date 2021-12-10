@@ -135,7 +135,7 @@ int escrevendo = 0;
 			Tiro tiro = Tiro(-10,-10,0,0,0);
 	        vector<Tiro> tiros;
 			//tiros.push_back(tiro);
-	        Nave nave = Nave(1, 1, 0, 320 + i*40, 120, 30, 0.1,i);
+	        Nave nave = Nave(1, 1, 0, 320 + i*80, 400, 30, 0.1,i);
 	        listaDeNaves.push_back(nave);
 	    }
 		
