@@ -3,6 +3,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -25,6 +26,7 @@ void Keyboard::verificaTecla() {
     }
     if(state[SDL_SCANCODE_UP]) {
         this->teclas[2] = 1;
+        cout << "Voce Pressionou Para Cima" << endl;
     }
     else{
         this->teclas[2] = 0;
@@ -43,11 +45,9 @@ void Keyboard::atualizarEstadoTeclado(){
 
 void Keyboard::atualizaEvento() {
     while(SDL_PollEvent(&(this->evento))){
-
         if(this->evento.type == SDL_QUIT) {
             this->saiu = 1;     
         }   
-
         else if(this->evento.type == SDL_KEYDOWN){
             if(state[SDL_SCANCODE_SPACE]){
                 this->atirou = 1;

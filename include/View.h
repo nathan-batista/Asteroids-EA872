@@ -38,7 +38,7 @@ class View{
         int t_height;
     public:
         View(ModelFinal &model, vector<Asteroid> &asteroid);
-        void renderizar();
+        void renderizar(int idDoJogador);
         void destruir();
         void carregarFonte(string txt);
         void carregarGameOver(string txt);

@@ -83,11 +83,12 @@ int TTF_Init();
     //SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
 }
 
-void View::renderizar(){
-    vector<Nave> listaDeNaves = model.verNaves();
+void View::renderizar(int idDoJogador){
+    vector<Nave>& listaDeNaves = model.getNaves();
     //std::cout << "Numero de Naves no Model: " << to_string(listaDeNaves.size()) << std::endl;
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, this->texture2, nullptr, nullptr);
+    //std::cout << "O vetor de asteroids tem tamanho: " << to_string(asteroid.size()) << endl;
     for(int j = 0; j < asteroid.size(); j++) {
             target_ast.x = asteroid[j].get_x_atual();
             target_ast.y = asteroid[j].get_y_atual();
@@ -98,8 +99,9 @@ void View::renderizar(){
     for(int i=0; i<listaDeNaves.size(); i++){
         //std::cout << to_string(i) << std::endl;
         Nave nave = listaDeNaves[i];
+        if(nave.id == -1) continue;
         int colidiu = nave.get_colidiu() == true ? 1 : 0; 
-        std::cout << to_string(colidiu) << std::endl;
+        //std::cout << "Se a Nave Colidiu : " <<  to_string(colidiu) << std::endl;
         if (!nave.get_colidiu()){
 
         
@@ -115,33 +117,32 @@ void View::renderizar(){
             }
         }
         
-        //Desenhar o score
-        carregarFonte("SCORE PLAYER"+ to_string(i) +": " + to_string(nave.get_score()) );
-        target_score.x = 100 + i*50;
-        target_score.y = 560;
-        target_score.h = this->t_height;
-        target_score.w = this->t_width;
-        SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
-
-        if(!nave.destruir){
-            std::cout << "Nave sendo desenhada" << std::endl;
+        //if(!nave.destruir){
+            //std::cout << "Nave sendo desenhada" << std::endl;
             // Desenhar a cena
             target.x = nave.get_x_atual();
             target.y = nave.get_y_atual();
-            cout << "A nave posicao x " << to_string(target.x) << endl;
-            cout << "A nave tem posicao y " <<to_string(target.y) << endl;
-            cout << "A nave tem altura " << to_string(nave.height) << endl;
-            cout << "A nave tem comprimento " <<to_string(nave.width) << endl;
+            // cout << "A nave posicao x " << to_string(target.x) << endl;
+            // cout << "A nave tem posicao y " <<to_string(target.y) << endl;
+            // cout << "A nave tem altura " << to_string(nave.height) << endl;
+            // cout << "A nave tem comprimento " <<to_string(nave.width) << endl;
             target.h = nave.height;
             target.w = nave.width;
             SDL_RenderCopy(this->renderer, this->texture, nullptr, &(this->target));
-        }
+        //}
 
         }
     }
-    std::cout << "Fim Renderizar" << std::endl;
+    //Desenhar o score
+    carregarFonte("SCORE PLAYER"+ to_string(idDoJogador) +": " + to_string(listaDeNaves[idDoJogador].get_score()) );
+    target_score.x = 100;
+    target_score.y = 560;
+    target_score.h = this->t_height;
+    target_score.w = this->t_width;
+    SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
+    //std::cout << "Fim Renderizar" << std::endl;
     SDL_RenderPresent(this->renderer);
-    SDL_Delay(1);
+    SDL_Delay(10);
 }
 
 void View::destruir(){
