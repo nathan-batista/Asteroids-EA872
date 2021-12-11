@@ -25,7 +25,7 @@ using boost::asio::ip::udp;
 boost::asio::io_service io_service;
 udp::endpoint local_endpoint(udp::v4(), 0);
 udp::socket meu_socket(io_service, local_endpoint);
-boost::asio::ip::address ip_remoto = boost::asio::ip::address::from_string("25.65.162.21");
+boost::asio::ip::address ip_remoto = boost::asio::ip::address::from_string("25.69.91.133");
 udp::endpoint remote_endpoint(ip_remoto, 9001);
 
       void receberJSON(vector<Nave> *navesGame,vector<Asteroid> *asteroidsJogo){

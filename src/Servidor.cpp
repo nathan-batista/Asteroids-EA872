@@ -161,6 +161,10 @@ int escrevendo = 0;
 
 	j["asteroids"] = asteroids;
 	j["naves"] = listaDeNaves;
+	std::string message(j.dump() + '\0');
+	for(int i=0; i<listaDeClientes.size(); i++){
+		my_socket.send_to(boost::asio::buffer(message), listaDeClientes[i]);
+	}
 		
 	std::thread t1(&receiveInput,listaDeClientes,&keyboard);
 	std::thread t2(&sendJSON,listaDeClientes,&listaDeNaves,&asteroids);
