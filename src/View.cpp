@@ -9,6 +9,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+
+
 using namespace std;
 
 const int SCREEN_WIDTH = 1000;
@@ -70,8 +73,10 @@ int TTF_Init();
     for(int i=0; i<8; i++){
         std::string nomeImagem = "../assets/nave" + to_string(i) + ".png";
         this->texture[i] = IMG_LoadTexture(this->renderer,nomeImagem.c_str() );
+        //auto rng = std::default_random_engine{};
         SDL_QueryTexture(this->texture[i], nullptr, nullptr, &(this->target.w), &(this->target.h));
     }
+    std::random_shuffle(begin(this->texture),end(this->texture));
      
     // fundo
     this->texture2 = IMG_LoadTexture(this->renderer, "../assets/space1.jpeg");      
@@ -125,7 +130,7 @@ void View::renderizar(int idDoJogador){
             SDL_RenderCopy(this->renderer, this->texture[i], nullptr, &(this->target));
             }
         }
-    if(listaID.size()==1){
+    if(listaID.size()==1 && !(listaDeNaves[1].id == -1)){
         if(!listaDeNaves[idDoJogador].get_colidiu()){
            carregarGameOver("YOU WIN!!");
            target_score.x = 280;
