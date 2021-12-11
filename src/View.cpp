@@ -68,7 +68,7 @@ int TTF_Init();
     this->target.y = 80;
     
     for(int i=0; i<8; i++){
-        this->texture[i] = IMG_LoadTexture(this->renderer, "../assets/nave-espacial.png");
+        this->texture[i] = IMG_LoadTexture(this->renderer, "../assets/nave" + to_string(i) + ".png");
         SDL_QueryTexture(this->texture[i], nullptr, nullptr, &(this->target.w), &(this->target.h));
     }
      
@@ -98,13 +98,8 @@ void View::renderizar(int idDoJogador){
             target_ast.w = asteroid[j].width;
             SDL_RenderCopy(this->renderer, this->texture3, nullptr, &(this->target_ast));    
     }
-    if(listaDeNaves.size()==1){
-        if(listaDeNaves[0].get_id() == idDoJogador){
-            carregarGameOver("YOU WIN!!");
-        }
-    }
-    else{      
-        for(int i=0; i<listaDeNaves.size(); i++){
+     
+    for(int i=0; i<listaDeNaves.size(); i++){
             Nave nave = listaDeNaves[i];
             if(nave.id == -1) continue;
             int colidiu = nave.get_colidiu() == true ? 1 : 0; 
@@ -130,7 +125,13 @@ void View::renderizar(int idDoJogador){
             }
         }
     }
-    if(find(listaID.begin(), listaID.end(), idDoJogador) == listaID.end()){
+    if(listaID.size()==1){
+        if(listaID[0] == idDoJogador){
+           carregarGameOver("YOU WIN!!")
+        }
+    }
+    
+    else if(find(listaID.begin(), listaID.end(), idDoJogador) == listaID.end()){
         carregarGameOver("GAME OVER");
     }
 
