@@ -68,7 +68,8 @@ int TTF_Init();
     this->target.y = 80;
     
     for(int i=0; i<8; i++){
-        this->texture[i] = IMG_LoadTexture(this->renderer, "../assets/nave" + to_string(i) + ".png");
+        std::string nomeImagem = "../assets/nave" + to_string(i) + ".png";
+        this->texture[i] = IMG_LoadTexture(this->renderer,nomeImagem.c_str() );
         SDL_QueryTexture(this->texture[i], nullptr, nullptr, &(this->target.w), &(this->target.h));
     }
      
@@ -124,15 +125,24 @@ void View::renderizar(int idDoJogador){
             SDL_RenderCopy(this->renderer, this->texture[i], nullptr, &(this->target));
             }
         }
-    }
     if(listaID.size()==1){
-        if(listaID[0] == idDoJogador){
-           carregarGameOver("YOU WIN!!")
+        if(!listaDeNaves[idDoJogador].get_colidiu()){
+           carregarGameOver("YOU WIN!!");
+           target_score.x = 280;
+           target_score.y = 280;
+           target_score.h = this->t_height;
+           target_score.w = this->t_width;
+           SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
         }
     }
     
-    else if(find(listaID.begin(), listaID.end(), idDoJogador) == listaID.end()){
+    if(listaDeNaves[idDoJogador].get_colidiu()){
         carregarGameOver("GAME OVER");
+        target_score.x = 280;
+        target_score.y = 280;
+        target_score.h = this->t_height;
+        target_score.w = this->t_width;
+        SDL_RenderCopy(this->renderer, this->score_texture, nullptr, &(this->target_score));
     }
 
     //Desenhar o score
