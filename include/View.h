@@ -21,7 +21,7 @@ class View{
         SDL_Rect target_ast;
         SDL_Rect target_tiro;
         SDL_Rect target_score;
-        SDL_Texture *texture;
+        SDL_Texture *texture [8];
         SDL_Texture *texture2;
         SDL_Texture *texture3;
         SDL_Texture *texture4;
