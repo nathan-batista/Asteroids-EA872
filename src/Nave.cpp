@@ -15,7 +15,6 @@ Nave::Nave(float m, float k, float b, float x0, float y0, float v0, float dt,int
       this->x_atual = x0;
       this->y_atual = y0;
       this->v_atual = v0;
-      //this->destruir = false;
       this->width = 65;
       this->height = 65;
       this->score = 0;

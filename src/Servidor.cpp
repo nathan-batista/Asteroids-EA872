@@ -32,10 +32,10 @@ int escrevendo = 0;
     void sendJSON(vector<udp::endpoint> listaDeClientes, vector<Nave> *listaNave,vector<Asteroid> *ast){
 		json j;
 		std::ofstream f;
+
 		while(true){
 			int num_players = listaDeClientes.size();
 			j.clear();
-			//cout << "Temos " << to_string(num_players) << " Clientes" <<endl;
 			if(escrevendo == 1){
 				vector<Nave> naves(8);
 				vector<Asteroid> asteroides(20);
@@ -50,25 +50,19 @@ int escrevendo = 0;
 				j["naves"] = naves;
 				j["asteroids"] = asteroides;
 
-			
-				// j["naves"] = *listaNave;
-				// j["asteroids"] = *ast;
 				f.open("model.json");
 				f << j;
 				f.close();
-				//j["batata"] = 3;
+
 				std::string message(j.dump() + '\0');
 				for(int i=0; i<num_players; i++){
 					my_socket.send_to(boost::asio::buffer(message), listaDeClientes[i]);
 				}
-				//cout << "Enviando asteroides de tamanho : " << to_string(ast->size()) << endl;
 			}
 			escrevendo = 0;
 			std::this_thread::sleep_for(std::chrono::milliseconds(5));
-		}
-	    
+		}	    
     }
-
 
 	void receiveInput(vector<udp::endpoint> listaDeClientes, Keyboard *teclado){
 		while(true){
@@ -86,12 +80,11 @@ int escrevendo = 0;
 			teclado->teclas[1] = tecladoPressionado[1];
 			teclado->teclas[2] = tecladoPressionado[2];
 			teclado->teclas[3] = tecladoPressionado[3];
-			//std::cout << "Teclas Recebidas : " << to_string(tecladoPressionado[0]) + " " << to_string(tecladoPressionado[1]) + " " << to_string(tecladoPressionado[2]) + " " << to_string(tecladoPressionado[3]) + " " <<std::endl;
+			
 			}
-			catch(...) { std::cout<< "Cagou aqui" << std::endl;
+			catch(...) { std::cout<< "Erro" << std::endl;
 			}
-		}
-	    
+		}   
 	}
 	
 	int main(){
@@ -99,12 +92,7 @@ int escrevendo = 0;
 	    char resp;
 	    json j;
 	    vector<Nave> listaDeNaves;
-		// boost::asio::io_service my_io_service; // Conecta com o SO
-		// udp::endpoint local_endpoint(udp::v4(), 9001); // endpoint: contem
-		// udp::socket my_socket(my_io_service, local_endpoint); // endpoint
-		// udp::endpoint remote_endpoint; // vai conter informacoes de quem conectar
-	
-	    
+ 
 	    std::cout << "Server Conectado" << std::endl;
 	    vector<udp::endpoint> listaDeClientes;
 	    std::cout << "Aguardando conexoes de jogadores" << std::endl;
@@ -134,21 +122,11 @@ int escrevendo = 0;
 	    for(int i = 0; i<num_players;i++){
 			Tiro tiro = Tiro(-10,-10,0,0,0);
 	        vector<Tiro> tiros;
-			//tiros.push_back(tiro);
 	        Nave nave = Nave(1, 1, 0, 320 + i*80, 400, 30, 0.1,i);
 	        listaDeNaves.push_back(nave);
 	    }
-		
-		
+			
   	vector<Asteroid> asteroids;
-	  /*
-  	Tiro tiro = Tiro(-10,-10,0,0,0);
-  	vector<Tiro> tiros;
-  	tiros.push_back(tiro);
- 	Nave nave = Nave(1, 1, 0, 320, 120, 30, 0.1, 0);
- 	Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
- 	asteroids.push_back(asteroid);
- 	listaDeNaves.push_back(nave); */
 	Asteroid asteroid = Asteroid(0, 0, 10, 10, 0.1);
  	asteroids.push_back(asteroid);
   	ModelFinal model = ModelFinal(listaDeNaves);
@@ -156,9 +134,7 @@ int escrevendo = 0;
   	ControllerGeral controller = ControllerGeral(model, asteroids);
 	AsteroidController astController = AsteroidController(asteroids);
 	TiroController tirController = TiroController();
-  	//View view = View(model, asteroids);
-	
-
+  	
 	j["asteroids"] = asteroids;
 	j["naves"] = listaDeNaves;
 	std::string message(j.dump() + '\0');
@@ -178,7 +154,6 @@ int escrevendo = 0;
 			}
 			escrevendo = 1;
 		}
-	} 
-			
+	} 			
 	return 0;
 }

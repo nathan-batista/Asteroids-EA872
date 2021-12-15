@@ -26,7 +26,6 @@ void Keyboard::verificaTecla() {
     }
     if(state[SDL_SCANCODE_UP]) {
         this->teclas[2] = 1;
-        cout << "Voce Pressionou Para Cima" << endl;
     }
     else{
         this->teclas[2] = 0;
